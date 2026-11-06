@@ -321,6 +321,13 @@ em{font-style:italic}
 .founder .role{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--sage);margin:8px 0 18px}
 .founder p{color:#B3C1AF;line-height:1.62;margin-bottom:14px}
 .founder p.quote{font-size:18px;color:#E2EADC;line-height:1.45;font-family:var(--display);font-weight:600;letter-spacing:-.012em}
+.values{margin-top:28px}
+.values .tag{display:block;margin-bottom:10px}
+.values ul{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule-dark);border:1px solid var(--rule-dark);margin:0;padding:0;list-style:none}
+.values li{background:var(--canopy);padding:16px 14px 18px}
+.values li b{display:block;font-family:var(--display);font-size:19px;font-weight:700;letter-spacing:-.014em;color:#EDF3E7;line-height:1.15}
+.values li::before{content:"";display:block;width:8px;height:8px;background:var(--sage);transform:rotate(45deg);margin-bottom:11px}
+@media (max-width:430px){.values ul{grid-template-columns:1fr}}
 .community{border-top:1.5px solid var(--rule-dark);padding-top:18px}
 .community h3{font-size:clamp(20px,1.9vw,26px);color:#F1F6EC;margin-bottom:6px}
 .community>p{color:#A8B6A4;font-size:14.5px;margin-bottom:18px;max-width:52ch}
@@ -491,12 +498,12 @@ em{font-style:italic}
         <a class="btn btn-ghost" href="#consult">Book a free on-site consultation</a>
       </div>
       <figure class="hero-photo">
-        <img src="assets/work-9-2.webp" alt="A completed Atlanta landscape: layered perennial beds, a mature red maple and a curving lawn" loading="lazy">
+        <img src="assets/work-9-2.webp" alt="A completed Atlanta landscape: layered perennial beds, a red-leaved maple and a curving lawn" loading="lazy">
         <figcaption>Residential work &mdash; Atlanta, GA</figcaption>
       </figure>
       <div class="proof">
         <span class="chip"><span class="star">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <b>5.0</b> &middot; 60+ Google reviews</span>
-        <span class="chip">Nextdoor <b>Neighborhood Favorite</b>, five years running</span>
+        <span class="chip">Nextdoor <b>Neighborhood Favorite</b>, five years recognised</span>
         <span class="chip">Lic. <b>1855422</b> LGB</span>
         <span class="chip">Mon&ndash;Sat <b>8&ndash;5</b></span>
       </div>
@@ -674,8 +681,6 @@ em{font-style:italic}
             <text class="sheet-label" x="740" y="636" style="font-size:10.5px">Concept by Keystone</text>
           </g>
         </svg>
-
-        </figure>
       </div>
       <div class="rail" role="group" aria-label="Choose a month to see what Atlanta land is doing">
         <button type="button" data-month="0" aria-pressed="false">JAN</button>
@@ -773,7 +778,7 @@ em{font-style:italic}
       </figure>
       <div class="facts">
         <div class="fact">
-          <b>Four in ten Georgia soils need lime.</b>
+          <b>Four in ten soil samples tested need lime.</b>
           <p>About 40% of the samples tested at UGA&rsquo;s Soil, Plant and Water Laboratory need lime &mdash; and lime takes months to react. Testing in January is what lets March act on it.</p>
           <cite>UGA Soil Test Handbook for Georgia</cite>
         </div>
@@ -802,7 +807,7 @@ em{font-style:italic}
   <div class="wrap">
     <div class="sec-head">
       <h2>Scope of work.</h2>
-      <p>Three tracks, drawn from the eleven services Yogardener actually carries. Most projects take one or more of each.</p>
+      <p>Three tracks, drawn from the twelve services Yogardener actually carries. Most projects draw on more than one.</p>
     </div>
     <div class="scope-grid">
       <div>
@@ -814,7 +819,7 @@ em{font-style:italic}
             <li><div><b>Walkways &amp; stairs</b><span>Flagstone and paver walks built to the grade, not fought against it.</span></div></li>
             <li><div><b>Retaining walls</b><span>Stabilising slopes, holding soil and improving drainage performance.</span></div></li>
             <li><div><b>Driveways</b><span>Installation and repair that survives Georgia&rsquo;s wet winters.</span></div></li>
-            <li><div><b>Fencing &amp; outdoor lighting</b><span>Boundaries and low-voltage lighting, planned with the hardscape.</span></div></li>
+            <li><div><b>Fencing, fire pits &amp; fireplaces</b><span>Boundaries, outdoor kitchens and fire features, planned with the hardscape.</span></div></li>
           </ul>
         </div>
         <div class="track">
@@ -835,7 +840,7 @@ em{font-style:italic}
             <li><div><b>Privacy plantings</b><span>Layered trees and shrubs for screening without a fence.</span></div></li>
             <li><div><b>Drainage corrections</b><span>Grading, French drains and dry creek beds that move water off the house.</span></div></li>
             <li><div><b>Edible gardens</b><span>Raised beds, seasonal planting plans, herbs, fruit and pollinator habitat.</span></div></li>
-            <li><div><b>Irrigation</b><span>Design, installation and smart upgrades &mdash; drip, low volume.</span></div></li>
+            <li><div><b>Water features &amp; irrigation</b><span>Design, installation and smart upgrades &mdash; drip, low volume.</span></div></li>
           </ul>
         </div>
       </div>
@@ -875,8 +880,8 @@ em{font-style:italic}
         <figcaption><b>Avery Drive</b><span>Atlanta, GA &middot; refreshed planting &amp; hardscape</span></figcaption>
       </figure>
       <figure class="proj p3">
-        <img src="assets/plymouth-045.webp" alt="Plymouth Road property with a broad lawn and mixed shrub border" loading="lazy">
-        <figcaption><b>Plymouth Road</b><span>Atlanta, GA &middot; year-round colour</span></figcaption>
+        <img src="assets/plymouth-045.webp" alt="Plymouth Road property with brick entry steps, evergreen shrubs and seasonal colour in containers" loading="lazy">
+        <figcaption><b>Plymouth Road</b><span>Atlanta, GA &middot; conifers, raised beds &amp; retaining walls</span></figcaption>
       </figure>
       <figure class="proj p4">
         <img src="assets/wildwood-006.webp" alt="Wildwood Road property showing a restored path and ornamental grasses" loading="lazy">
@@ -895,7 +900,7 @@ em{font-style:italic}
   <div class="wrap">
     <div class="sec-head">
       <h2>What homeowners say afterwards.</h2>
-      <p>Quoted in full, exactly as written, from Google and Nextdoor. Everarde answers most of them himself.</p>
+      <p>Quoted in full, exactly as written, from Google and Nextdoor. Most of these homeowners name Everarde themselves.</p>
     </div>
     <div class="rev-top">
       <div>
@@ -908,7 +913,7 @@ em{font-style:italic}
         <div class="gquotes">
           <p>&ldquo;Work was done perfectly and very quickly for a fair price.&rdquo;</p>
           <p>&ldquo;The quality of the project is superb and the service has been outstanding.&rdquo;</p>
-          <span>Google&rsquo;s own summary of the reviews</span>
+          <span>Google&rsquo;s own highlighted lines from the reviews</span>
         </div>
       </div>
       <div>
@@ -990,18 +995,26 @@ em{font-style:italic}
       <div class="founder">
         <h3>Everarde Calk</h3>
         <p class="role">Principal &middot; Yogardener, LLC</p>
-        <p class="quote">Everarde Calk is an entrepreneur, yogi, philosopher and firm believer that all hands and minds are needed to solve the social and environmental challenges of the 21st century.</p>
-        <p>He trained in Permaculture Design with Stephen Brooks and Sarah Wu at the Global Eclipse Gathering in 2017, then brought the method home: &ldquo;in permaculture design, we refer to this sphere of influence as Zone 0 &mdash; the home.&rdquo;</p>
-        <p>His working values are short enough to say out loud: <em>earth care, people care, and fair share.</em> He is now on the advisory board of Concrete Jungle, the largest food rescue programme in the Southeast.</p>
+        <p class="quote">&ldquo;Everarde Calk is an entrepreneur, yogi, philosopher and firm believer that all hands and minds are needed to solve the social and environmental challenges of the 21st century.&rdquo;</p>
+        <p>He trained in Permaculture Design with Stephen Brooks and Sarah Wu at the Global Eclipse Gathering in 2017, then brought the method home: &ldquo;In permaculture design, we refer to this sphere of influence as &lsquo;Zone 0&rsquo; &mdash; the home.&rdquo;</p>
+        <p>He is now on the advisory board of Concrete Jungle, the largest food rescue programme in the Southeast.</p>
+        <div class="values">
+          <span class="tag">His working values, in his own words</span>
+          <ul>
+            <li><b>Earth care</b></li>
+            <li><b>People care</b></li>
+            <li><b>Fair share</b></li>
+          </ul>
+        </div>
       </div>
       <div class="community">
         <h3>Beyond the invoice</h3>
-        <p>Yogardener has funded and planted a food forest at the cOMingle Festival, directed the stage design for Earthbeat Southeast, donated a mandala garden and the roof over its stage at Atlanta Action Day, and ran an eight-week summer jobs programme with Friends of English Avenue teaching landscaping, horticulture and yoga to Atlanta teens.</p>
+        <p>Yogardener has funded and planted a food forest at the cOMingle Festival, directed the stage design for Earthbeat Southeast, donated a mandala garden and managed construction of the roof over its stage at Atlanta Action Day, and worked with Friends of English Avenue on an eight-week summer jobs programme in 2016, teaching landscaping, horticulture and yoga to young people aged 16&ndash;24.</p>
         <div class="comm-grid">
           <figure class="comm"><img src="assets/community-mandala-garden.webp" alt="Mandala garden beds built for Atlanta Action Day" loading="lazy"><span>Atlanta Action Day #2, 2018</span></figure>
           <figure class="comm"><img src="assets/community-comingle12.webp" alt="Two people digging and planting a food forest" loading="lazy"><span>cOMingle food forest</span></figure>
-          <figure class="comm"><img src="assets/community-20191221_171617.webp" alt="An indoor forest oasis with native planting and bamboo structures" loading="lazy"><span>Earthbeat Southeast stage design</span></figure>
-          <figure class="comm"><img src="assets/community-raised-bed-menas-farm.webp" alt="A new raised garden bed with a retaining wall at Mena's Farm" loading="lazy"><span>Mena&rsquo;s Farm, Proctor Creek</span></figure>
+          <figure class="comm"><img src="assets/community-20191221_171617.webp" alt="An indoor forest oasis with grasses, sculptural elements and handmade bamboo structures" loading="lazy"><span>Earthbeat Southeast stage design</span></figure>
+          <figure class="comm"><img src="assets/community-raised-bed-menas-farm.webp" alt="A new raised garden bed and timber-edged path at Mena's Farm" loading="lazy"><span>Mena&rsquo;s Farm, Proctor Creek</span></figure>
         </div>
       </div>
     </div>
@@ -1016,17 +1029,17 @@ em{font-style:italic}
       <p>What Atlanta land is doing, month by month, and when the work belongs in the ground. This is the calendar we plan by &mdash; and it is the calendar we hand you.</p>
     </div>
     <div class="year">
-      <div class="mo"><h4>January</h4><b>Test the soil</b><p>Four in ten Georgia soils need lime and lime takes months to react. Winter is when the test goes in so March can act on it.</p><cite>UGA Soil Handbook</cite></div>
-      <div class="mo"><h4>February</h4><b>Prune before spring</b><p>Buds swell mid-February in south Georgia. Renewal-pruning overgrown shrubs now gives new growth a full season to establish.</p><cite>UGA B-961</cite></div>
+      <div class="mo"><h4>January</h4><b>Test the soil</b><p>Four in ten soil samples tested in Georgia need lime, and lime takes months to react. Winter is when the test goes in so March can act on it.</p><cite>UGA Soil Handbook</cite></div>
+      <div class="mo"><h4>February</h4><b>Prune before spring</b><p>Buds swell mid-February in south Georgia &mdash; and by mid-March in north Georgia, which includes Atlanta. February is the ideal month to lay new sod. Renewal-pruning overgrown shrubs now gives new growth a full season to establish.</p><cite>UGA B-961 &middot; UGA Fulton Extension</cite></div>
       <div class="mo"><h4>March</h4><b>Wait for green-up</b><p>The best month to lime. But no nitrogen on warm-season turf until soil at 4&Prime; holds 65&deg;F and rising &mdash; too early invites large patch.</p><cite>UGA Fulton Extension</cite></div>
-      <div class="mo"><h4>April</h4><b>Aerate the fescue</b><p>April is a best month for core aeration, and tall fescue is the Piedmont&rsquo;s grass. We aerate before we overseed, never after.</p><cite>UGA Turf Calendar</cite></div>
-      <div class="mo"><h4>May</h4><b>Open the season</b><p>Core aeration for bermuda, zoysia and centipede. Sod is a best month. Centipede takes 5&nbsp;lb of 12-4-8 per 1,000&nbsp;sq&nbsp;ft.</p><cite>UGA Turf Calendar</cite></div>
+      <div class="mo"><h4>April</h4><b>Aerate the fescue</b><p>April is a best month for core aeration, and tall fescue is the Piedmont&rsquo;s grass. Aerate before overseeding, so the seed reaches soil.</p><cite>UGA Turf Calendar</cite></div>
+      <div class="mo"><h4>May</h4><b>Open the season</b><p>Core aeration for bermuda, zoysia and centipede. Warm-season sod goes in from late April. Centipede takes 5&nbsp;lb of 12-4-8 per 1,000&nbsp;sq&nbsp;ft.</p><cite>UGA Turf Calendars &middot; UGA Centipede Guide</cite></div>
       <div class="mo"><h4>June</h4><b>Water deep, water rare</b><p>About an inch a week, twice a week. In a city taking 50 inches of rain, more water is the problem, not less.</p><cite>UGA IPM, 2020</cite></div>
       <div class="mo"><h4>July</h4><b>Expect the swoon</b><p>July is the hottest and wettest month here. Dollar spot and brown patch peak at 75&ndash;85&deg;F; fescue opens its canopy until late September. It is not dying.</p><cite>UGA IPM, 2020</cite></div>
-      <div class="mo"><h4>August</h4><b>Raise the blade</b><p>Mowing height goes up half an inch in heat. Azaleas are not pruned after mid-July, or next spring&rsquo;s flowers go with it.</p><cite>UGA B-961</cite></div>
-      <div class="mo"><h4>September</h4><b>Sow the fescue</b><p>September and October are ideal for establishing tall fescue; seed germinates in 5&ndash;10 days. We interseed into thin canopy while it is still warm.</p><cite>UGA Fulton Extension</cite></div>
-      <div class="mo"><h4>October</h4><b>The busy month</b><p>Core aeration, fall fertilisation, winter preemergence and irrigation winterization &mdash; all before Atlanta&rsquo;s average first freeze on November 13.</p><cite>UGA B-1439 &middot; NWS</cite></div>
-      <div class="mo"><h4>November</h4><b>Shut the water off</b><p>Drain the lines, backflush the filters, remove every part that can hold water. The average first freeze is November 13; the earliest was October 11, 1906.</p><cite>UGA B-1439</cite></div>
+      <div class="mo"><h4>August</h4><b>Raise the blade</b><p>Mowing height goes up half an inch in heat. Azaleas are not pruned after mid-July, or next spring&rsquo;s flowers go with it.</p><cite>UGA Turf Calendar &middot; UGA B-961</cite></div>
+      <div class="mo"><h4>September</h4><b>Sow the fescue</b><p>September and October are ideal for establishing tall fescue; seed germinates in 5&ndash;10 days. Seed germinates in 5&ndash;10 days, so thin canopy can be interseeded while it is still warm.</p><cite>UGA Fulton Extension</cite></div>
+      <div class="mo"><h4>October</h4><b>The busy month</b><p>Core aeration, fall fertilisation, winter preemergence and irrigation winterization &mdash; all before Atlanta&rsquo;s average first freeze on November 13.</p><cite>UGA Turfgrass Calendars &middot; UGA B-1439 &middot; NWS</cite></div>
+      <div class="mo"><h4>November</h4><b>Shut the water off</b><p>Drain the lines, backflush the filters, remove every part that can hold water. The average first freeze is November 13; the earliest was October 11, 1906.</p><cite>UGA B-1439 &middot; NWS</cite></div>
       <div class="mo"><h4>December</h4><b>Put the ground to bed</b><p>Mulch 2&ndash;3&Prime; deep over root zones and no farther than the drip line, kept 3&ndash;4&Prime; off the trunk. Leave dry leaves to mow and melt.</p><cite>UGA CAES</cite></div>
     </div>
     <p class="srcnote">Calendar drawn from UGA Cooperative Extension&rsquo;s published lawn calendars and the Georgia Turfgrass Handbook, with NOAA 1991&ndash;2020 normals for Atlanta Hartsfield-Jackson and NWS Atlanta freeze dates. Individually quoted in each month. Yogardener&rsquo;s own writing on the same subjects is at yogardener.com/blog.</p>
@@ -1039,7 +1052,7 @@ em{font-style:italic}
     <div class="tb">
       <div class="tb-cell">
         <div class="tb-label">Client</div>
-        <div class="tb-val">Your property<small>Atlanta and the surrounding metro area &mdash; Marietta, Sandy Springs, Buckhead, North Druid Hills, Vinings and the Atlanta metro.</small></div>
+        <div class="tb-val">Your property<small>Atlanta and the surrounding metro area &mdash; North Druid Hills, Sandy Springs, Vinings, Marietta and Buckhead.</small></div>
       </div>
       <div class="tb-cell">
         <div class="tb-label">Service</div>
@@ -1051,7 +1064,7 @@ em{font-style:italic}
       </div>
       <div class="tb-cell">
         <div class="tb-label">Response</div>
-        <div class="tb-val">Within one business day<small>Call the number and you speak to Everarde. If he is on a job, your message is answered the next working day.</small></div>
+        <div class="tb-val">Within one business day<small>Call the number. If he is on a job, your message is answered the next working day.</small></div>
       </div>
       <div class="tb-cell">
         <div class="tb-label">Office</div>
@@ -1101,9 +1114,9 @@ em{font-style:italic}
     <div>
       <h4>This concept, by Keystone Cognition Labs</h4>
       <p>Michael Robateau &middot; <a href="tel:+13108010847">(310) 801-0847</a></p>
-      <p>Websites and AI phone answering for local businesses that have neither.</p>
+      <p>Websites, redesigns and AI phone answering for local businesses.</p>
     </div>
-    <p class="prov">SOURCES &amp; RIGHTS &mdash; Concept redesign prepared by Keystone Cognition Labs, Nov 2026; not published by Yogardener and not their live site. Photography and the Yogardener logo and Nextdoor award badge are Yogardener&rsquo;s own assets, drawn from yogardener.com for this proposal and to be cleared with the owner before any use. Customer quotations are reproduced verbatim from Google and Nextdoor reviews. Seasonal, soil and climate figures are taken from UGA Cooperative Extension, NOAA 1991&ndash;2020 normals and NWS Atlanta, cited month by month. Review counts differ between Google and third-party mirrors and are stated here as &ldquo;60+&rdquo; rather than a figure that would go stale.</p>
+    <p class="prov">SOURCES &amp; RIGHTS &mdash; Concept redesign prepared by Keystone Cognition Labs, Nov 2026; not published by Yogardener and not their live site. Photography and the Yogardener logo are Yogardener&rsquo;s own assets, drawn from yogardener.com for this proposal and to be cleared with the owner before any use. The Nextdoor award badge is a Nextdoor trademark, shown only to evidence the award they have been given, and is cleared separately with Nextdoor. No Google Business Profile or Yelp photographs have been used. Customer quotations are reproduced verbatim from Google and Nextdoor reviews. Seasonal, soil and climate figures are taken from UGA Cooperative Extension, NOAA 1991&ndash;2020 normals and NWS Atlanta, cited month by month. Review counts differ between Google and third-party mirrors and are stated here as &ldquo;60+&rdquo; rather than a figure that would go stale.</p>
   </div>
 </footer>
 
