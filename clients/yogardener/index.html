@@ -18,6 +18,7 @@
 :root{
   --ink:#16211B;
   --ink-2:#415246;
+  --ink-3:#5A6A52;
   --vellum:#F3ECDD;
   --vellum-2:#E7DCC5;
   --vellum-3:#DCCFB3;
@@ -25,8 +26,8 @@
   --canopy-2:#16211A;
   --canopy-3:#1E2C21;
   --canopy-4:#2A3A2C;
-  --ember:#C0552C;
-  --ember-deep:#9A3E1D;
+  --ember:#A8451F;
+  --ember-deep:#8A3717;
   --sage:#8C9A5C;
   --sage-deep:#6B7844;
   --mist:#C3CDBE;
@@ -67,14 +68,15 @@ a{color:inherit}
 .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
 
 /* ---------- type primitives ---------- */
-h1,h2,h3,h4{margin:0;font-family:var(--display);font-weight:700;letter-spacing:-.022em;line-height:1.02;text-wrap:balance}
+h1,h2,h3,h4{margin:0;font-family:var(--display);font-weight:700;letter-spacing:-.022em;line-height:1.02}
+h2,h3,h4{text-wrap:balance}
 p{margin:0}
 .mono{font-family:var(--mono);font-weight:500}
 .tag{
-  font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.16em;
+  font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.16em;
   text-transform:uppercase;color:var(--mist-dim);
 }
-.tag.on-light{color:#6C7A67}
+.tag.on-light{color:#5A6A52}
 .lede{font-size:clamp(17px,1.35vw,20px);line-height:1.55;color:#D7E0D1}
 .on-light .lede{color:#39493E}
 em{font-style:italic}
@@ -85,7 +87,7 @@ em{font-style:italic}
   border-bottom:1px solid rgba(0,0,0,.25);
 }
 .notice .wrap{display:flex;gap:14px;align-items:center;justify-content:center;
-  flex-wrap:wrap;padding-block:7px;text-align:center}
+  flex-wrap:wrap;padding-block:8px;text-align:center}
 .notice strong{font-weight:700}
 .notice a{text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
 
@@ -105,8 +107,8 @@ em{font-style:italic}
 }
 .brand-mark img{width:100%;height:100%;object-fit:contain}
 .brand-txt{display:flex;flex-direction:column;line-height:1.1}
-.brand-txt b{font-family:var(--display);font-size:15px;font-weight:700;letter-spacing:.01em;color:#EDF2E8}
-.brand-txt span{font-family:var(--mono);font-size:9.5px;letter-spacing:.17em;color:var(--mist-dim);text-transform:uppercase}
+.brand-txt b{font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:.01em;color:#EDF2E8}
+.brand-txt span{font-family:var(--mono);font-size:11px;letter-spacing:.17em;color:var(--mist-dim);text-transform:uppercase}
 .nav{display:flex;gap:4px;margin-left:auto}
 .nav a{
   font-size:13.5px;text-decoration:none;color:var(--mist-dim);padding:7px 11px;border-radius:3px;
@@ -121,7 +123,7 @@ em{font-style:italic}
   box-shadow:0 2px 0 var(--ember-deep);
   transition:transform .16s cubic-bezier(.2,.7,.3,1),background .16s ease,box-shadow .16s ease;
 }
-.callbtn:hover{background:#CE5F33;transform:translateY(-1px);box-shadow:0 3px 0 var(--ember-deep)}
+.callbtn:hover{background:#B55120;transform:translateY(-1px);box-shadow:0 3px 0 var(--ember-deep)}
 .callbtn:active{transform:translateY(1px);box-shadow:0 1px 0 var(--ember-deep)}
 .callbtn svg{width:15px;height:15px;flex:0 0 auto}
 
@@ -133,10 +135,10 @@ em{font-style:italic}
     radial-gradient(1100px 520px at 78% -10%, rgba(140,154,92,.16), transparent 62%),
     radial-gradient(760px 460px at 6% 108%, rgba(192,85,44,.13), transparent 64%);
 }
-.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr);
   gap:clamp(30px,4vw,58px);align-items:start}
 .hero h1{
-  font-size:clamp(38px,5.4vw,72px);font-weight:800;letter-spacing:-.03em;line-height:.97;
+  font-size:clamp(38px,5.4vw,68px);font-weight:800;letter-spacing:-.028em;line-height:.99;
   color:#F3F7EE;margin-bottom:20px;
 }
 .hero h1 em{font-style:normal;color:var(--sage)}
@@ -149,7 +151,7 @@ em{font-style:italic}
   transition:transform .16s cubic-bezier(.2,.7,.3,1),background .16s ease,border-color .16s ease,color .16s ease;
 }
 .btn-solid{background:var(--ember);color:#FFF6EF;box-shadow:0 2px 0 var(--ember-deep)}
-.btn-solid:hover{background:#CE5F33;transform:translateY(-1px);box-shadow:0 3px 0 var(--ember-deep)}
+.btn-solid:hover{background:#B55120;transform:translateY(-1px);box-shadow:0 3px 0 var(--ember-deep)}
 .btn-solid:active{transform:translateY(1px);box-shadow:0 1px 0 var(--ember-deep)}
 .btn-ghost{border-color:rgba(243,236,221,.30);color:#E6EDE1}
 .btn-ghost:hover{border-color:var(--sage);color:#F2F7EC;background:rgba(140,154,92,.12);transform:translateY(-1px)}
@@ -171,7 +173,7 @@ em{font-style:italic}
 .sheet-head{
   display:flex;justify-content:space-between;align-items:baseline;gap:16px;
   padding:11px 18px;border-bottom:1.5px solid var(--ink);
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:#5A6A5C;
+  font-family:var(--mono);font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#5A6A5C;
 }
 .sheet-head b{color:var(--ink);font-weight:700;letter-spacing:.15em}
 .sheet-body{position:relative}
@@ -185,9 +187,9 @@ em{font-style:italic}
 .dash{stroke-dasharray:5 4}
 .house-fill{fill:#E4DAC2;stroke:#2A3A2D;stroke-width:2}
 .zone0{fill:none;stroke:#8A5A34;stroke-width:1.3;stroke-dasharray:7 5}
-.sheet-label{font-family:var(--mono);font-size:10px;letter-spacing:.09em;fill:#4E5D50}
+.sheet-label{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;fill:#4E5D50}
 .sheet-label.dark{fill:#2A3A2D}
-.sheet-label.sm{font-size:9px}
+.sheet-label.sm{font-size:12.5px}
 .planting{fill:var(--z1);opacity:.22;transition:fill .5s ease}
 .draw{stroke-dasharray:var(--len,600);stroke-dashoffset:var(--len,600)}
 .is-drawn .draw{transition:stroke-dashoffset 1.6s cubic-bezier(.3,.8,.3,1);stroke-dashoffset:0}
@@ -199,8 +201,8 @@ em{font-style:italic}
 }
 .rail button{
   appearance:none;border:0;border-right:1px solid rgba(22,33,27,.16);background:transparent;
-  font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;
-  color:#6C7A67;padding:11px 2px 10px;cursor:pointer;position:relative;
+  font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;
+  color:#4F5D47;padding:11px 2px 10px;cursor:pointer;position:relative;
   transition:background .16s ease,color .16s ease;
 }
 .rail button:last-child{border-right:0}
@@ -215,7 +217,7 @@ em{font-style:italic}
   font-size:13px;color:#3E4E43;
 }
 .monthnote b{font-family:var(--display);font-weight:700;color:var(--ink);font-size:14.5px}
-.monthnote span{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:#7A8874}
+.monthnote span{font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#5A6A52}
 
 /* ---------- section shell ---------- */
 .sec{padding-block:clamp(58px,7.5vw,104px)}
@@ -233,12 +235,12 @@ em{font-style:italic}
 .fact{padding:20px 0;border-bottom:1px solid var(--rule-dark)}
 .fact b{display:block;font-family:var(--display);font-weight:700;font-size:19px;color:#EAF1E4;margin-bottom:6px;letter-spacing:-.012em}
 .fact p{font-size:14.5px;color:#A8B6A4;line-height:1.55}
-.fact cite{display:block;margin-top:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;
+.fact cite{display:block;margin-top:8px;font-family:var(--mono);font-size:12px;letter-spacing:.11em;
   text-transform:uppercase;color:#77866F;font-style:normal}
 
 /* ---------- scope (vellum) ---------- */
 .on-light{background:var(--vellum);color:var(--ink)}
-.on-light .tag{color:#6C7A67}
+.on-light .tag{color:#5A6A52}
 .scope-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.78fr);gap:clamp(28px,4vw,64px)}
 .scope-grid>aside{position:sticky;top:92px;align-self:start}
 .track{border-top:1.5px solid var(--ink);padding-top:16px;margin-bottom:34px}
@@ -254,10 +256,10 @@ em{font-style:italic}
 .process ol{list-style:none;margin:0;padding:0;counter-reset:step}
 .process li{counter-increment:step;padding:14px 0;border-bottom:1px solid var(--rule-light);position:relative}
 .process li::before{
-  content:counter(step,decimal-leading-zero);font-family:var(--mono);font-size:11px;font-weight:700;
+  content:counter(step,decimal-leading-zero);font-family:var(--mono);font-size:12.5px;font-weight:700;
   letter-spacing:.1em;color:var(--ember);display:block;margin-bottom:4px;
 }
-.process b{font-family:var(--display);font-size:16px;font-weight:700;letter-spacing:-.008em}
+.process b{font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:-.008em}
 .process p{font-size:14px;color:#4C5B4E;margin-top:3px;line-height:1.5}
 .promise{
   margin-top:22px;background:var(--ink);color:var(--vellum);padding:18px 20px;border-radius:3px;
@@ -275,7 +277,7 @@ em{font-style:italic}
   background:linear-gradient(to top,rgba(8,14,10,.92) 12%,rgba(8,14,10,0));
 }
 .proj b{display:block;font-family:var(--display);font-size:18px;font-weight:700;color:#F2F7EE;letter-spacing:-.012em}
-.proj span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#AFBCA6;margin-top:4px}
+.proj span{display:block;font-family:var(--mono);font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:#AFBCA6;margin-top:4px}
 .p1{grid-column:1/8;aspect-ratio:5/4}
 .p2{grid-column:8/13;aspect-ratio:1/1}
 .p3{grid-column:1/5;aspect-ratio:4/5}
@@ -302,23 +304,23 @@ em{font-style:italic}
 .gquotes{margin-top:26px;padding-top:20px;border-top:1px solid var(--rule-light)}
 .gquotes p{font-family:var(--display);font-size:17px;font-weight:600;letter-spacing:-.014em;line-height:1.35;color:var(--ink);margin-bottom:14px}
 .gquotes p:last-of-type{margin-bottom:10px}
-.gquotes span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#7A8874}
-.badge b{display:block;font-family:var(--display);font-size:15px;letter-spacing:-.008em}
+.gquotes span{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#5A6A52}
+.badge b{display:block;font-family:var(--display);font-size:16px;letter-spacing:-.008em}
 .badge span{display:block;font-size:12.5px;color:#4C5B4E;margin-top:2px}
 .notes{columns:2;column-gap:clamp(18px,2.4vw,32px)}
 .note{break-inside:avoid;margin-bottom:16px;border:1px solid var(--rule-light);border-radius:3px;padding:16px 17px;background:#FAF5EA}
 .note .who{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:9px}
 .note .who b{font-family:var(--display);font-size:14.5px;font-weight:700;letter-spacing:-.005em}
-.note .who span{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:#7A8874;white-space:nowrap}
+.note .who span{font-family:var(--mono);font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;color:#5A6A52;white-space:nowrap}
 .note p{font-size:14.5px;line-height:1.55;color:#33422F}
-.note footer{margin-top:10px;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#8A9781}
+.note footer{margin-top:10px;font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#5A6A52}
 @media (max-width:820px){.notes{columns:1}.rev-top{grid-template-columns:1fr}}
 
 /* ---------- people + community ---------- */
 .people-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(28px,4vw,62px);align-items:start}
 .founder{border-top:1.5px solid var(--sage);padding-top:18px}
 .founder h3{font-size:clamp(24px,2.4vw,34px);color:#F1F6EC;letter-spacing:-.022em}
-.founder .role{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--sage);margin:8px 0 18px}
+.founder .role{font-family:var(--mono);font-size:12.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--sage);margin:8px 0 18px}
 .founder p{color:#B3C1AF;line-height:1.62;margin-bottom:14px}
 .founder p.quote{font-size:18px;color:#E2EADC;line-height:1.45;font-family:var(--display);font-weight:600;letter-spacing:-.012em}
 .values{margin-top:28px}
@@ -336,8 +338,8 @@ em{font-style:italic}
 .comm img{width:100%;height:100%;object-fit:cover}
 .comm span{
   position:absolute;inset:auto 0 0 0;padding:26px 12px 10px;
-  background:linear-gradient(to top,rgba(8,14,10,.92),rgba(8,14,10,0));
-  font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:#D7E1D0;
+  background:linear-gradient(to top,rgba(8,14,10,.94),rgba(8,14,10,0));
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;color:#D7E1D0;
 }
 @media (max-width:900px){.people-grid{grid-template-columns:1fr}.comm-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:980px){.scope-grid{grid-template-columns:1fr}.scope-grid>aside{position:static}
@@ -346,22 +348,22 @@ em{font-style:italic}
 /* ---------- the year ---------- */
 .year{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule-light);border:1px solid var(--rule-light)}
 .mo{background:var(--vellum);padding:16px 18px 18px;min-height:158px;display:flex;flex-direction:column}
-.mo h4{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ember);margin-bottom:9px}
+.mo h3{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ember);margin-bottom:9px}
 .mo b{font-family:var(--display);font-size:15.5px;font-weight:700;letter-spacing:-.012em;line-height:1.15;display:block;margin-bottom:8px}
 .mo p{font-size:13px;line-height:1.5;color:#46553F;flex:1}
-.mo cite{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#8A9781;font-style:normal;margin-top:9px}
+.mo cite{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:#5A6A52;font-style:normal;margin-top:9px}
 @media (max-width:1080px){.year{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:760px){.year{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:480px){.year{grid-template-columns:1fr}.mo{min-height:0}}
-.srcnote{margin-top:16px;font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;color:#7A8874;line-height:1.7}
+.srcnote{margin-top:16px;font-family:var(--mono);font-size:12px;letter-spacing:.01em;color:#5A6A52;line-height:1.7}
 
 /* ---------- close / title block ---------- */
 .close-wrap{background:var(--vellum);color:var(--ink);padding-block:clamp(54px,6.5vw,92px)}
 .tb{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);border:1.5px solid var(--ink);border-radius:3px;overflow:hidden}
 .tb-cell{padding:18px 20px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
 .tb-cell:nth-child(2n){border-right:0}
-.tb-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#6C7A67;margin-bottom:6px}
-.tb-val{font-family:var(--display);font-size:16px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.tb-label{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:#5A6A52;margin-bottom:6px}
+.tb-val{font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
 .tb-val small{display:block;font-family:var(--body);font-size:13px;font-weight:400;color:#4C5B4E;letter-spacing:0;margin-top:3px;line-height:1.45}
 .tb-big{grid-column:1/-1;border-right:0;background:var(--ink);color:var(--vellum);padding:26px 24px;display:grid;
   grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center}
@@ -378,26 +380,26 @@ em{font-style:italic}
 @media (max-width:620px){.fields{grid-template-columns:1fr}}
 .field{display:flex;flex-direction:column;gap:6px}
 .field.wide{grid-column:1/-1}
-.field label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#5A6A5C}
+.field label{font-family:var(--mono);font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:#5A6A5C}
 .field input,.field textarea{
-  font-family:var(--body);font-size:15px;color:var(--ink);background:#FAF5EA;
+  font-family:var(--body);font-size:16px;color:var(--ink);background:#FAF5EA;
   border:1px solid var(--rule-light);border-radius:3px;padding:11px 12px;width:100%;
   transition:border-color .16s ease,box-shadow .16s ease;
 }
 .field textarea{min-height:92px;resize:vertical}
 .field input:focus,.field textarea:focus{outline:none;border-color:var(--sage-deep);box-shadow:0 0 0 3px rgba(140,154,92,.24)}
-.field input::placeholder,.field textarea::placeholder{color:#96A08F}
+.field input::placeholder,.field textarea::placeholder{color:#5C6857}
 .form-foot{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:16px}
-.form-note{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:#7A8874;max-width:46ch;line-height:1.6}
+.form-note{font-family:var(--mono);font-size:12px;letter-spacing:.01em;color:#5A6A52;max-width:46ch;line-height:1.6}
 
 /* ---------- footer ---------- */
 .foot{background:var(--canopy);color:var(--mist-dim);padding-block:34px 40px;font-size:13px}
 .foot .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:30px}
-.foot h4{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--sage);margin-bottom:10px;font-weight:500}
+.foot h4{font-family:var(--mono);font-size:12.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--sage);margin-bottom:10px;font-weight:500}
 .foot a{color:#D4DDCF;text-decoration:none;border-bottom:1px solid rgba(243,236,221,.22)}
 .foot a:hover{color:#fff;border-color:var(--sage)}
 .foot p{margin-bottom:7px;line-height:1.6}
-.prov{margin-top:22px;padding-top:16px;border-top:1px solid var(--rule-dark);font-family:var(--mono);font-size:10.5px;line-height:1.75;letter-spacing:.02em;color:#77866F}
+.prov{margin-top:22px;padding-top:16px;border-top:1px solid var(--rule-dark);font-family:var(--mono);font-size:12px;line-height:1.75;letter-spacing:.02em;color:#77866F}
 @media (max-width:760px){.foot .wrap{grid-template-columns:1fr}}
 
 
@@ -415,26 +417,26 @@ em{font-style:italic}
   .brand-txt span{display:none}
 }
 @media (max-width:760px){
-  .notice .wrap{font-size:11.5px;line-height:1.45;padding-block:7px}
+  .notice .wrap{font-size:12px;line-height:1.45;padding-block:7px}
   .brand-mark{width:44px;height:44px}
   .brand-txt b{font-size:14px}
   .callbtn{font-size:14.5px;padding:9px 12px;gap:7px}
   .hero-photo{display:block;margin:26px 0 0;border-radius:3px;overflow:hidden;border:1px solid var(--rule-dark)}
   .hero-photo img{width:100%;aspect-ratio:16/10;object-fit:cover}
-  .hero-photo figcaption{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--mist-dim);padding:9px 2px 0}
+  .hero-photo figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--mist-dim);padding:9px 2px 0}
   .sheet-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule-light);border-top:1px solid var(--ink)}
   .sheet-facts div{background:var(--vellum);padding:11px 13px}
-  .sheet-facts b{display:block;font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
-  .sheet-facts span{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:#7A8874;margin-bottom:3px}
+  .sheet-facts b{display:block;font-family:var(--display);font-size:16px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+  .sheet-facts span{display:block;font-family:var(--mono);font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;color:#5A6A52;margin-bottom:3px}
   .monthnote{font-size:12.5px;gap:8px}
   .monthnote b{font-size:13.5px}
 }
 @media (max-width:520px){
   .hero h1{font-size:clamp(36px,10.5vw,52px)}
   .hero-actions .btn{width:100%;justify-content:center}
-  .chip{font-size:11.5px;padding:6px 9px}
+  .chip{font-size:12px;padding:6px 9px}
   .proof{gap:7px}
-  .rail button{font-size:10px;padding:10px 1px 9px}
+  .rail button{font-size:11px;padding:10px 1px 9px}
   .fields{grid-template-columns:1fr}
   .foot .wrap{grid-template-columns:1fr}
   .tb-big{grid-template-columns:1fr;text-align:left}
@@ -488,7 +490,7 @@ em{font-style:italic}
 <section class="hero">
   <div class="wrap">
     <div>
-      <h1>Your yard,<br><em>read</em> before<br>it&rsquo;s built.</h1>
+      <h1>Your&nbsp;yard,<br><em>read</em> before<br>it&rsquo;s built.</h1>
       <p class="hero-copy">Landscape planning, design and installation for Atlanta. Everarde Calk, principal, has spent a decade reading Piedmont clay, slope and summer heat before putting a single plant in the ground.</p>
       <div class="hero-actions">
         <a class="btn btn-solid" href="tel:+14046232287">
@@ -546,7 +548,7 @@ em{font-style:italic}
 
             <!-- property line -->
             <path class="plan-ink dash" style="stroke:#8A7C5E;stroke-width:1.5" d="M40 78 L520 50 L664 224 L640 462 L110 490 L26 300 Z"/>
-            <text class="sheet-label" x="250" y="42" style="font-size:11px">PROPERTY LINE</text>
+            <text class="sheet-label" x="250" y="42" style="font-size:12.5px">PROPERTY LINE</text>
 
             <!-- contours -->
             <path class="plan-ink draw" style="--len:520;stroke:#9FAF92;stroke-width:1.1" d="M50 126 C160 102 250 140 358 114 C436 96 512 120 632 100"/>
@@ -559,7 +561,7 @@ em{font-style:italic}
             <!-- house -->
             <path class="house-fill" d="M186 196 H336 V240 H370 V320 H186 Z"/>
             <path d="M186 196 L228 166 H306 L336 196" fill="none" stroke="#2A3A2D" stroke-width="1.3"/>
-            <text class="sheet-label dark" x="196" y="258" style="font-size:11.5px">EXISTING HOUSE</text>
+            <text class="sheet-label dark" x="196" y="258" style="font-size:12px">EXISTING HOUSE</text>
             <text class="sheet-label sm" x="196" y="278">+986</text>
             <path class="plan-ink" style="stroke-width:1.2;stroke-dasharray:3 3" d="M186 300 L146 420"/>
             <text class="sheet-label sm" x="102" y="442">DRIVE</text>
@@ -591,48 +593,48 @@ em{font-style:italic}
 
             <!-- zone 0 -->
             <ellipse class="zone0" cx="278" cy="258" rx="116" ry="98"/>
-            <text class="sheet-label" x="178" y="148" style="fill:#8A5A34;font-size:11px">ZONE 0 &mdash; THE HOUSE</text>
+            <text class="sheet-label" x="178" y="148" style="fill:#8A5A34;font-size:12.5px">ZONE 0 &mdash; THE HOUSE</text>
 
             <!-- proposed native bed -->
             <path d="M286 336 C330 328 392 336 414 356 C432 374 418 396 384 402 C340 410 296 398 282 378 C272 362 274 344 286 336 Z"
                   fill="#8C9A5C" opacity=".34" stroke="#5E6B36" stroke-width="1.5"/>
-            <text class="sheet-label" x="272" y="424" style="fill:#4A5A2E;font-size:11px">PROPOSED NATIVE BED</text>
+            <text class="sheet-label" x="272" y="424" style="fill:#4A5A2E;font-size:12.5px">PROPOSED NATIVE BED</text>
 
             <!-- proposed rain garden -->
             <circle cx="196" cy="438" r="24" fill="#8C9A5C" opacity=".30" stroke="#5E6B36" stroke-width="1.4" stroke-dasharray="5 4"/>
-            <text class="sheet-label" x="152" y="398" style="fill:#4A5A2E;font-size:11px">RAIN GARDEN</text>
+            <text class="sheet-label" x="152" y="398" style="fill:#4A5A2E;font-size:12.5px">RAIN GARDEN</text>
 
             <!-- proposed patio -->
             <rect x="470" y="336" width="88" height="52" fill="url(#flag)" stroke="#8A5A34" stroke-width="1.4"/>
-            <text class="sheet-label" x="470" y="404" style="fill:#8A5A34;font-size:11px">PROPOSED PATIO</text>
+            <text class="sheet-label" x="470" y="404" style="fill:#8A5A34;font-size:12.5px">PROPOSED PATIO</text>
 
             <!-- slope -->
             <path d="M420 238 L556 292" stroke="#8A5A34" stroke-width="1.7" fill="none" marker-end="url(#arrow)"/>
-            <text class="sheet-label" x="404" y="230" style="fill:#8A5A34;font-size:11px">6% FALL</text>
+            <text class="sheet-label" x="404" y="230" style="fill:#8A5A34;font-size:12.5px">6% FALL</text>
 
             <!-- drainage -->
             <path d="M560 284 C640 316 656 380 626 422 C606 452 626 466 652 458"
                   stroke="#415246" stroke-width="1.5" fill="none" stroke-dasharray="7 5" marker-end="url(#arrow-ink)"/>
-            <text class="sheet-label" x="470" y="430" style="fill:#415246;font-size:11px">FRENCH DRAIN</text>
+            <text class="sheet-label" x="470" y="430" style="fill:#415246;font-size:12.5px">FRENCH DRAIN</text>
 
             <!-- north arrow -->
             <g transform="translate(78,120)">
               <circle r="20" fill="none" stroke="#2A3A2D" stroke-width="1.2"/>
               <path d="M0 -15 L6 9 L0 5 L-6 9 Z" fill="#2A3A2D"/>
-              <text class="sheet-label dark sm" x="-4" y="34" style="font-size:11px">N</text>
+              <text class="sheet-label dark sm" x="-4" y="34" style="font-size:12.5px">N</text>
             </g>
 
             <!-- photo plates -->
             <g>
-              <text class="sheet-label" x="690" y="38" style="font-size:11px">PHOTO PLATES</text>
+              <text class="sheet-label" x="690" y="38" style="font-size:12.5px">PHOTO PLATES</text>
               <image href="assets/prado-193.webp" x="690" y="56" width="252" height="189" preserveAspectRatio="xMidYMid slice" clip-path="url(#plateA)"/>
               <rect x="690" y="56" width="252" height="189" fill="none" stroke="#2A3A2D" stroke-width="1.4"/>
-              <text class="sheet-label" x="690" y="262" style="font-size:11px">PLATE 1 &mdash; SOUTH PRADO, ATLANTA</text>
+              <text class="sheet-label" x="690" y="262" style="font-size:12.5px">PLATE 1 &mdash; SOUTH PRADO, ATLANTA</text>
               <g transform="rotate(-1.4 829 381)">
                 <image href="assets/work-9-2.webp" x="716" y="296" width="226" height="170" preserveAspectRatio="xMidYMid slice" clip-path="url(#plateB)"/>
                 <rect x="716" y="296" width="226" height="170" fill="none" stroke="#2A3A2D" stroke-width="1.4"/>
               </g>
-              <text class="sheet-label" x="716" y="486" style="font-size:11px">PLATE 2 &mdash; RESIDENTIAL WORK, ATLANTA</text>
+              <text class="sheet-label" x="700" y="486" style="font-size:12.5px">PLATE 2 &mdash; RESIDENTIAL WORK</text>
             </g>
           </g>
 
@@ -645,40 +647,40 @@ em{font-style:italic}
             <line x1="520" y1="510" x2="520" y2="660" stroke="#2A3A2D" stroke-width="1.2"/>
             <line x1="724" y1="510" x2="724" y2="660" stroke="#2A3A2D" stroke-width="1.2"/>
 
-            <text class="sheet-label" x="16" y="538" style="font-size:11px">Project</text>
-            <text class="sheet-label dark" x="16" y="562" style="font-size:15px;font-weight:700">AN ATLANTA LOT</text>
-            <text class="sheet-label" x="16" y="586" style="font-size:10.5px">Sheet 01 &mdash; Existing</text>
-            <text class="sheet-label" x="16" y="604" style="font-size:10.5px">conditions &amp; plan</text>
-            <text class="sheet-label" x="16" y="636" style="font-size:10.5px">Yogardener, LLC</text>
+            <text class="sheet-label" x="16" y="538" style="font-size:12.5px">Project</text>
+            <text class="sheet-label dark" x="16" y="562" style="font-size:18px;font-weight:700">AN ATLANTA LOT</text>
+            <text class="sheet-label" x="16" y="586" style="font-size:12px">Sheet 01 &mdash; Existing</text>
+            <text class="sheet-label" x="16" y="604" style="font-size:12px">conditions &amp; plan</text>
+            <text class="sheet-label" x="16" y="636" style="font-size:12px">Yogardener, LLC</text>
 
-            <text class="sheet-label" x="232" y="538" style="font-size:11px">Drawn by</text>
-            <text class="sheet-label dark" x="232" y="562" style="font-size:15px;font-weight:700">Everarde Calk</text>
-            <text class="sheet-label" x="232" y="586" style="font-size:10.5px">Principal</text>
-            <text class="sheet-label" x="232" y="604" style="font-size:10.5px">Planning since 2015</text>
-            <text class="sheet-label" x="232" y="636" style="font-size:10.5px">Atlanta, Georgia</text>
+            <text class="sheet-label" x="232" y="538" style="font-size:12.5px">Drawn by</text>
+            <text class="sheet-label dark" x="232" y="562" style="font-size:18px;font-weight:700">Everarde Calk</text>
+            <text class="sheet-label" x="232" y="586" style="font-size:12px">Principal</text>
+            <text class="sheet-label" x="232" y="604" style="font-size:12px">Planning since 2015</text>
+            <text class="sheet-label" x="232" y="636" style="font-size:12px">Atlanta, Georgia</text>
 
-            <text class="sheet-label" x="412" y="538" style="font-size:11px">Scale</text>
-            <text class="sheet-label dark" x="412" y="560" style="font-size:15px;font-weight:700">1&quot; = 20'</text>
+            <text class="sheet-label" x="412" y="538" style="font-size:12.5px">Scale</text>
+            <text class="sheet-label dark" x="412" y="560" style="font-size:18px;font-weight:700">1&quot; = 20'</text>
             <g transform="translate(412,574)">
               <rect x="0" y="0" width="22" height="6" fill="#2A3A2D"/>
               <rect x="22" y="0" width="22" height="6" fill="none" stroke="#2A3A2D" stroke-width="1"/>
               <rect x="44" y="0" width="22" height="6" fill="#2A3A2D"/>
-              <text class="sheet-label sm" x="0" y="19" style="font-size:9.5px">0</text>
-              <text class="sheet-label sm" x="38" y="19" style="font-size:9.5px">20'</text>
+              <text class="sheet-label sm" x="0" y="19" style="font-size:11px">0</text>
+              <text class="sheet-label sm" x="38" y="19" style="font-size:11px">20'</text>
             </g>
-            <text class="sheet-label" x="412" y="636" style="font-size:10.5px">Date &mdash; Nov 2026</text>
+            <text class="sheet-label" x="412" y="636" style="font-size:12px">Date &mdash; Nov 2026</text>
 
-            <text class="sheet-label" x="536" y="538" style="font-size:11px">Contact</text>
-            <text class="sheet-label dark" x="536" y="562" style="font-size:16px;font-weight:700">(404) 623-2287</text>
-            <text class="sheet-label" x="536" y="586" style="font-size:10.5px">yogardener404@gmail.com</text>
-            <text class="sheet-label" x="536" y="606" style="font-size:10.5px">1226 Zonolite Rd NE</text>
-            <text class="sheet-label" x="536" y="636" style="font-size:10.5px">Mon&ndash;Sat, 8:00&ndash;5:00</text>
+            <text class="sheet-label" x="536" y="538" style="font-size:12.5px">Contact</text>
+            <text class="sheet-label dark" x="536" y="562" style="font-size:18px;font-weight:700">(404) 623-2287</text>
+            <text class="sheet-label" x="536" y="586" style="font-size:12px">yogardener404@gmail.com</text>
+            <text class="sheet-label" x="536" y="606" style="font-size:12px">1226 Zonolite Rd NE</text>
+            <text class="sheet-label" x="536" y="636" style="font-size:12px">Mon&ndash;Sat, 8:00&ndash;5:00</text>
 
-            <text class="sheet-label" x="740" y="538" style="font-size:11px">Next step</text>
-            <text class="sheet-label dark" x="740" y="562" style="font-size:15px;font-weight:700">Free consultation</text>
-            <text class="sheet-label" x="740" y="586" style="font-size:10.5px">We reply within one</text>
-            <text class="sheet-label" x="740" y="604" style="font-size:10.5px">business day.</text>
-            <text class="sheet-label" x="740" y="636" style="font-size:10.5px">Concept by Keystone</text>
+            <text class="sheet-label" x="740" y="538" style="font-size:12.5px">Next step</text>
+            <text class="sheet-label dark" x="740" y="562" style="font-size:18px;font-weight:700">Free consultation</text>
+            <text class="sheet-label" x="740" y="586" style="font-size:12px">We reply within one</text>
+            <text class="sheet-label" x="740" y="604" style="font-size:12px">business day.</text>
+            <text class="sheet-label" x="740" y="636" style="font-size:12px">Concept by Keystone</text>
           </g>
         </svg>
       </div>
@@ -724,7 +726,7 @@ em{font-style:italic}
           <desc id="csDesc">A drawn cross-section showing a house on a six percent slope, a layer of compacted red clay, a drainage swale at the low point, and the root zone of a native tree reaching the amended soil.</desc>
           <defs>
             <pattern id="clay" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(28)">
-              <line x1="0" y1="0" x2="0" y2="12" stroke="#C0552C" stroke-width="1.4" opacity=".30"/>
+              <line x1="0" y1="0" x2="0" y2="12" stroke="#A8451F" stroke-width="1.4" opacity=".34"/>
             </pattern>
             <pattern id="topsoil" width="10" height="10" patternUnits="userSpaceOnUse">
               <circle cx="3" cy="3" r="1" fill="#5E7A4A" opacity=".45"/>
@@ -1029,18 +1031,18 @@ em{font-style:italic}
       <p>What Atlanta land is doing, month by month, and when the work belongs in the ground. This is the calendar we plan by &mdash; and it is the calendar we hand you.</p>
     </div>
     <div class="year">
-      <div class="mo"><h4>January</h4><b>Test the soil</b><p>Four in ten soil samples tested in Georgia need lime, and lime takes months to react. Winter is when the test goes in so March can act on it.</p><cite>UGA Soil Handbook</cite></div>
-      <div class="mo"><h4>February</h4><b>Prune before spring</b><p>Buds swell mid-February in south Georgia &mdash; and by mid-March in north Georgia, which includes Atlanta. February is the ideal month to lay new sod. Renewal-pruning overgrown shrubs now gives new growth a full season to establish.</p><cite>UGA B-961 &middot; UGA Fulton Extension</cite></div>
-      <div class="mo"><h4>March</h4><b>Wait for green-up</b><p>The best month to lime. But no nitrogen on warm-season turf until soil at 4&Prime; holds 65&deg;F and rising &mdash; too early invites large patch.</p><cite>UGA Fulton Extension</cite></div>
-      <div class="mo"><h4>April</h4><b>Aerate the fescue</b><p>April is a best month for core aeration, and tall fescue is the Piedmont&rsquo;s grass. Aerate before overseeding, so the seed reaches soil.</p><cite>UGA Turf Calendar</cite></div>
-      <div class="mo"><h4>May</h4><b>Open the season</b><p>Core aeration for bermuda, zoysia and centipede. Warm-season sod goes in from late April. Centipede takes 5&nbsp;lb of 12-4-8 per 1,000&nbsp;sq&nbsp;ft.</p><cite>UGA Turf Calendars &middot; UGA Centipede Guide</cite></div>
-      <div class="mo"><h4>June</h4><b>Water deep, water rare</b><p>About an inch a week, twice a week. In a city taking 50 inches of rain, more water is the problem, not less.</p><cite>UGA IPM, 2020</cite></div>
-      <div class="mo"><h4>July</h4><b>Expect the swoon</b><p>July is the hottest and wettest month here. Dollar spot and brown patch peak at 75&ndash;85&deg;F; fescue opens its canopy until late September. It is not dying.</p><cite>UGA IPM, 2020</cite></div>
-      <div class="mo"><h4>August</h4><b>Raise the blade</b><p>Mowing height goes up half an inch in heat. Azaleas are not pruned after mid-July, or next spring&rsquo;s flowers go with it.</p><cite>UGA Turf Calendar &middot; UGA B-961</cite></div>
-      <div class="mo"><h4>September</h4><b>Sow the fescue</b><p>September and October are ideal for establishing tall fescue; seed germinates in 5&ndash;10 days. Seed germinates in 5&ndash;10 days, so thin canopy can be interseeded while it is still warm.</p><cite>UGA Fulton Extension</cite></div>
-      <div class="mo"><h4>October</h4><b>The busy month</b><p>Core aeration, fall fertilisation, winter preemergence and irrigation winterization &mdash; all before Atlanta&rsquo;s average first freeze on November 13.</p><cite>UGA Turfgrass Calendars &middot; UGA B-1439 &middot; NWS</cite></div>
-      <div class="mo"><h4>November</h4><b>Shut the water off</b><p>Drain the lines, backflush the filters, remove every part that can hold water. The average first freeze is November 13; the earliest was October 11, 1906.</p><cite>UGA B-1439 &middot; NWS</cite></div>
-      <div class="mo"><h4>December</h4><b>Put the ground to bed</b><p>Mulch 2&ndash;3&Prime; deep over root zones and no farther than the drip line, kept 3&ndash;4&Prime; off the trunk. Leave dry leaves to mow and melt.</p><cite>UGA CAES</cite></div>
+      <div class="mo"><h3>January</h3><b>Test the soil</b><p>Four in ten soil samples tested in Georgia need lime, and lime takes months to react. Winter is when the test goes in so March can act on it.</p><cite>UGA Soil Handbook</cite></div>
+      <div class="mo"><h3>February</h3><b>Prune before spring</b><p>Buds swell mid-February in south Georgia &mdash; and by mid-March in north Georgia, which includes Atlanta. February is the ideal month to lay new sod. Renewal-pruning overgrown shrubs now gives new growth a full season to establish.</p><cite>UGA B-961 &middot; UGA Fulton Extension</cite></div>
+      <div class="mo"><h3>March</h3><b>Wait for green-up</b><p>The best month to lime. But no nitrogen on warm-season turf until soil at 4&Prime; holds 65&deg;F and rising &mdash; too early invites large patch.</p><cite>UGA Fulton Extension</cite></div>
+      <div class="mo"><h3>April</h3><b>Aerate the fescue</b><p>April is a best month for core aeration, and tall fescue is the Piedmont&rsquo;s grass. Aerate before overseeding, so the seed reaches soil.</p><cite>UGA Turf Calendar</cite></div>
+      <div class="mo"><h3>May</h3><b>Open the season</b><p>Core aeration for bermuda, zoysia and centipede. Warm-season sod goes in from late April. Centipede takes 5&nbsp;lb of 12-4-8 per 1,000&nbsp;sq&nbsp;ft.</p><cite>UGA Turf Calendars &middot; UGA Centipede Guide</cite></div>
+      <div class="mo"><h3>June</h3><b>Water deep, water rare</b><p>About an inch a week, twice a week. In a city taking 50 inches of rain, more water is the problem, not less.</p><cite>UGA IPM, 2020</cite></div>
+      <div class="mo"><h3>July</h3><b>Expect the swoon</b><p>July is the hottest and wettest month here. Dollar spot and brown patch peak at 75&ndash;85&deg;F; fescue opens its canopy until late September. It is not dying.</p><cite>UGA IPM, 2020</cite></div>
+      <div class="mo"><h3>August</h3><b>Raise the blade</b><p>Mowing height goes up half an inch in heat. Azaleas are not pruned after mid-July, or next spring&rsquo;s flowers go with it.</p><cite>UGA Turf Calendar &middot; UGA B-961</cite></div>
+      <div class="mo"><h3>September</h3><b>Sow the fescue</b><p>September and October are ideal for establishing tall fescue &mdash; seed germinates in 5&ndash;10 days, so thin canopy can be interseeded while it is still warm.</p><cite>UGA Fulton Extension</cite></div>
+      <div class="mo"><h3>October</h3><b>The busy month</b><p>Core aeration, fall fertilisation, winter preemergence and irrigation winterization &mdash; all before Atlanta&rsquo;s average first freeze on November 13.</p><cite>UGA Turfgrass Calendars &middot; UGA B-1439 &middot; NWS</cite></div>
+      <div class="mo"><h3>November</h3><b>Shut the water off</b><p>Drain the lines, backflush the filters, remove every part that can hold water. The average first freeze is November 13; the earliest was October 11, 1906.</p><cite>UGA B-1439 &middot; NWS</cite></div>
+      <div class="mo"><h3>December</h3><b>Put the ground to bed</b><p>Mulch 2&ndash;3&Prime; deep over root zones and no farther than the drip line, kept 3&ndash;4&Prime; off the trunk. Leave dry leaves to mow and melt.</p><cite>UGA CAES</cite></div>
     </div>
     <p class="srcnote">Calendar drawn from UGA Cooperative Extension&rsquo;s published lawn calendars and the Georgia Turfgrass Handbook, with NOAA 1991&ndash;2020 normals for Atlanta Hartsfield-Jackson and NWS Atlanta freeze dates. Individually quoted in each month. Yogardener&rsquo;s own writing on the same subjects is at yogardener.com/blog.</p>
   </div>
@@ -1085,7 +1087,7 @@ em{font-style:italic}
 
     <div class="form">
       <h3>Or send the brief</h3>
-      <p class="sub">Three fields and a sentence about your yard. It reaches Everarde&rsquo;s desk.</p>
+      <p class="sub">Three fields and a sentence about your yard &mdash; the whole brief, in your own words.</p>
       <form action="#" method="post" onsubmit="return false;">
         <div class="fields">
           <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" placeholder="Your name"></div>
