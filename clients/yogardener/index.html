@@ -8,6 +8,7 @@
 <meta name="description" content="Concept redesign of Yogardener by Keystone Cognition Labs. Landscape planning, design and installation for Atlanta: drainage, hardscape, native planting and edible gardens. Since 2015.">
 <link rel="preload" href="assets/fonts/Anybody-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/HankenGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/AzeretMono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/fonts.css">
 <style>
 /* ============================================================
@@ -27,6 +28,7 @@
   --canopy-3:#1E2C21;
   --canopy-4:#2A3A2C;
   --ember:#A8451F;
+  --ember-tint:#D07A52;
   --ember-deep:#8A3717;
   --sage:#8C9A5C;
   --sage-deep:#6B7844;
@@ -41,8 +43,6 @@
   --gut:clamp(20px,5vw,60px);
   --maxw:1300px;
   --z1:#5E7A4A;   /* planting fill, season-driven */
-  --z2:#7E9152;
-  --z3:#C9BFA2;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
@@ -56,9 +56,9 @@ body{
 img{max-width:100%;display:block}
 figure{margin:0}
 a{color:inherit}
-::selection{background:var(--ember);color:#FFF9F0}
+::selection{background:#3E5A46;color:#F4F8F0}
 :focus-visible{outline:2px solid var(--ember);outline-offset:3px}
-:focus:not(:focus-visible){outline:none}
+:focus:not(:focus-visible){outline:2px solid var(--sage)}
 @supports selector(::-webkit-scrollbar){
   ::-webkit-scrollbar{width:13px;height:13px}
   ::-webkit-scrollbar-track{background:var(--canopy)}
@@ -70,6 +70,8 @@ a{color:inherit}
 /* ---------- type primitives ---------- */
 h1,h2,h3,h4{margin:0;font-family:var(--display);font-weight:700;letter-spacing:-.022em;line-height:1.02}
 h2,h3,h4{text-wrap:balance}
+.sec-head h2{font-size:clamp(27px,3.1vw,41px);max-width:22ch;margin-bottom:16px}
+.sec-head p{max-width:62ch}
 p{margin:0}
 .mono{font-family:var(--mono);font-weight:500}
 .tag{
@@ -83,19 +85,19 @@ em{font-style:italic}
 
 /* ---------- notice ---------- */
 .notice{
-  background:var(--ember);color:#FFF4EA;font-size:12.5px;letter-spacing:.005em;
-  border-bottom:1px solid rgba(0,0,0,.25);
+  background:var(--canopy-2);color:#A8B6A4;font-size:12.5px;letter-spacing:.005em;
+  border-bottom:1px solid var(--rule-dark);
 }
+.notice strong{color:#D7E1D0;font-weight:700}
 .notice .wrap{display:flex;gap:14px;align-items:center;justify-content:center;
-  flex-wrap:wrap;padding-block:8px;text-align:center}
+  flex-wrap:wrap;padding-block:9px;text-align:center}
 .notice strong{font-weight:700}
 .notice a{text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
 
 /* ---------- header ---------- */
 .masthead{
   position:sticky;top:0;z-index:60;
-  background:rgba(14,22,17,.88);
-  -webkit-backdrop-filter:saturate(150%) blur(14px);backdrop-filter:saturate(150%) blur(14px);
+  background:var(--canopy);
   border-bottom:1px solid var(--rule-dark);
 }
 .masthead .wrap{display:flex;align-items:center;gap:22px;padding-block:11px}
@@ -119,56 +121,53 @@ em{font-style:italic}
   display:inline-flex;align-items:center;gap:9px;text-decoration:none;
   background:var(--ember);color:#FFF6EF;
   font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:-.01em;
-  padding:11px 16px;border-radius:3px;
-  box-shadow:0 2px 0 var(--ember-deep);
-  transition:transform .16s cubic-bezier(.2,.7,.3,1),background .16s ease,box-shadow .16s ease;
+  padding:11px 16px;border-radius:2px;border:1px solid var(--ember-deep);
+  transition:background .16s ease,border-color .16s ease;
 }
-.callbtn:hover{background:#B55120;transform:translateY(-1px);box-shadow:0 3px 0 var(--ember-deep)}
-.callbtn:active{transform:translateY(1px);box-shadow:0 1px 0 var(--ember-deep)}
+.callbtn:hover{background:#B55120;border-color:var(--ember-deep)}
+.callbtn:active{background:#983F1B}
 .callbtn svg{width:15px;height:15px;flex:0 0 auto}
 
 /* ---------- hero ---------- */
 .hero{padding-block:clamp(44px,6vw,84px) clamp(40px,5vw,70px);position:relative;overflow:hidden}
 .hero::before{
   content:"";position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(1100px 520px at 78% -10%, rgba(140,154,92,.16), transparent 62%),
-    radial-gradient(760px 460px at 6% 108%, rgba(192,85,44,.13), transparent 64%);
+  background:radial-gradient(1400px 700px at 72% -18%, rgba(140,154,92,.11), transparent 66%);
 }
-.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr);
-  gap:clamp(30px,4vw,58px);align-items:start}
+.hero .wrap{position:relative;display:flex;flex-direction:column;gap:clamp(30px,3.6vw,52px)}
+.hero-top{display:grid;grid-template-columns:minmax(0,1.28fr) minmax(0,.72fr);gap:clamp(24px,3.4vw,64px);align-items:end}
+@media (max-width:900px){.hero-top{grid-template-columns:1fr;align-items:start;gap:26px}}
 .hero h1{
   font-size:clamp(38px,5.4vw,68px);font-weight:800;letter-spacing:-.028em;line-height:.99;
-  color:#F3F7EE;margin-bottom:20px;
+  color:#F3F7EE;margin-bottom:18px;max-width:16ch;
 }
 .hero h1 em{font-style:normal;color:var(--sage)}
-.hero-copy{max-width:46ch;color:#C9D4C4;font-size:clamp(16px,1.2vw,18.5px);line-height:1.58}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-copy{max-width:52ch;color:#C9D4C4;font-size:clamp(16px,1.35vw,19px);line-height:1.58}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .btn{
   display:inline-flex;align-items:center;gap:10px;text-decoration:none;
   font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:-.008em;
   padding:14px 20px;border-radius:3px;border:1px solid transparent;
   transition:transform .16s cubic-bezier(.2,.7,.3,1),background .16s ease,border-color .16s ease,color .16s ease;
 }
-.btn-solid{background:var(--ember);color:#FFF6EF;box-shadow:0 2px 0 var(--ember-deep)}
-.btn-solid:hover{background:#B55120;transform:translateY(-1px);box-shadow:0 3px 0 var(--ember-deep)}
-.btn-solid:active{transform:translateY(1px);box-shadow:0 1px 0 var(--ember-deep)}
+.btn-solid{background:var(--ember);color:#FFF6EF;border-color:var(--ember-deep)}
+.btn-solid:hover{background:#B55120}
+.btn-solid:active{background:#983F1B}
 .btn-ghost{border-color:rgba(243,236,221,.30);color:#E6EDE1}
 .btn-ghost:hover{border-color:var(--sage);color:#F2F7EC;background:rgba(140,154,92,.12);transform:translateY(-1px)}
-.proof{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:34px;padding-top:24px;border-top:1px solid var(--rule-dark)}
-.chip{
-  display:inline-flex;align-items:center;gap:7px;
-  border:1px solid var(--rule-dark);border-radius:3px;
-  padding:6px 10px;font-size:12.5px;color:#C9D4C4;background:rgba(243,236,221,.035);
-}
-.chip b{font-family:var(--display);font-weight:700;color:#EDF3E7}
-.chip .star{color:var(--ember);font-size:12px;letter-spacing:.5px}
+.proof{border-top:1.5px solid var(--sage);padding-top:14px;margin:0}
+.proof dl{margin:0}
+.proof dl > div{display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;padding:9px 0;border-bottom:1px solid var(--rule-dark);align-items:baseline}
+.proof dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage)}
+.proof dd{margin:0;font-size:14.5px;color:#D5DFCE;line-height:1.4}
+.proof dd b{font-family:var(--display);font-weight:700;color:#F1F6EC}
+.proof .star{color:var(--ember-tint);letter-spacing:1px;font-size:12px}
 
 /* ---------- the sheet ---------- */
 .board{
   background:var(--vellum);color:var(--ink);border-radius:3px;
-  box-shadow:var(--sheet-shadow);position:relative;
-  transform:rotate(-.35deg);
+  box-shadow:0 0 0 1px rgba(243,236,221,.14),0 26px 60px -34px rgba(0,0,0,.85);
+  position:relative;
 }
 .sheet-head{
   display:flex;justify-content:space-between;align-items:baseline;gap:16px;
@@ -179,16 +178,14 @@ em{font-style:italic}
 .sheet-body{position:relative}
 .sheet-body svg{display:block;width:100%;height:auto}
 .plan-ink{fill:none;stroke:#2A3A2D;stroke-linecap:round;stroke-linejoin:round}
-.paper-line{stroke:#B8AE95}
-.faint{stroke:#C9C0A8}
 .tree-fill{fill:var(--z1);opacity:.42;transition:fill .5s ease}
 .tree-fill2{fill:url(#canopyfill)}
 .tree-stroke{stroke:#5C7448;stroke-width:1.1;fill:none;opacity:.85;transition:stroke .5s ease}
 .dash{stroke-dasharray:5 4}
 .house-fill{fill:#E4DAC2;stroke:#2A3A2D;stroke-width:2}
 .zone0{fill:none;stroke:#8A5A34;stroke-width:1.3;stroke-dasharray:7 5}
-.sheet-label{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;fill:#4E5D50}
-.sheet-label.dark{fill:#2A3A2D}
+.sheet-label{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;fill:#4E5D50;color:#4E5D50}
+.sheet-label.dark{fill:#2A3A2D;color:#2A3A3D}
 .sheet-label.sm{font-size:12.5px}
 .planting{fill:var(--z1);opacity:.22;transition:fill .5s ease}
 .draw{stroke-dasharray:var(--len,600);stroke-dashoffset:var(--len,600)}
@@ -212,15 +209,19 @@ em{font-style:italic}
   content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--ember);
 }
 .monthnote{
-  display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;
-  padding:12px 18px;border-top:1px solid rgba(22,33,27,.16);background:var(--vellum);
-  font-size:13px;color:#3E4E43;
+  display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,2.1fr) auto;gap:20px;align-items:baseline;
+  padding:15px 18px;border-top:1px solid rgba(22,33,27,.16);background:var(--vellum);
+  font-size:13.5px;line-height:1.45;color:#3E4E43;
 }
-.monthnote b{font-family:var(--display);font-weight:700;color:var(--ink);font-size:14.5px}
-.monthnote span{font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#5A6A52}
+.monthnote b{font-family:var(--display);font-weight:700;color:var(--ink);font-size:16px;letter-spacing:-.012em}
+.monthnote #mn-task{font-family:var(--body);font-size:13.5px;letter-spacing:0;text-transform:none;color:#3E4E43}
+.monthnote #mn-cite{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#5A6A52;white-space:nowrap}
+@media (max-width:820px){.monthnote{grid-template-columns:1fr;gap:6px}.monthnote #mn-cite{white-space:normal}}
+@media (max-width:820px){.monthnote{grid-template-columns:1fr;gap:6px}}
 
 /* ---------- section shell ---------- */
-.sec{padding-block:clamp(58px,7.5vw,104px)}
+.sec{padding-block:clamp(58px,7.5vw,104px);scroll-margin-top:92px}
+#consult,#community,#work,#scope,#reviews,#year,#land{scroll-margin-top:92px}
 .sec-head{max-width:66ch;margin-bottom:clamp(30px,3.6vw,52px)}
 .sec-head h2{font-size:clamp(29px,3.6vw,48px);color:#F1F6EC;margin-bottom:16px}
 .sec-head p{color:#B6C3B2;font-size:clamp(16px,1.15vw,18px);line-height:1.6}
@@ -228,8 +229,8 @@ em{font-style:italic}
 .on-light .sec-head p{color:#3D4D41}
 
 /* ---------- the land (cross-section) ---------- */
-.land-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr);gap:clamp(26px,3.6vw,54px);align-items:start}
-.section-svg{background:var(--canopy-2);border:1px solid var(--rule-dark);border-radius:3px;padding:14px}
+.land-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(26px,3.6vw,54px);align-items:start}
+.section-svg{background:var(--vellum);border-radius:3px;padding:0;box-shadow:0 18px 44px -26px rgba(0,0,0,.8),0 0 0 1px rgba(243,236,221,.12)}
 .section-svg svg{display:block;width:100%;height:auto}
 .facts{border-top:1px solid var(--rule-dark)}
 .fact{padding:20px 0;border-bottom:1px solid var(--rule-dark)}
@@ -253,6 +254,7 @@ em{font-style:italic}
 .lines b{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:-.008em}
 .lines span{display:block;font-size:14px;color:#4C5B4E;margin-top:2px;line-height:1.5}
 .process{border-top:1.5px solid var(--ink);padding-top:16px}
+.process h3{font-size:clamp(19px,1.6vw,23px);margin-bottom:10px}
 .process ol{list-style:none;margin:0;padding:0;counter-reset:step}
 .process li{counter-increment:step;padding:14px 0;border-bottom:1px solid var(--rule-light);position:relative}
 .process li::before{
@@ -294,27 +296,28 @@ em{font-style:italic}
 }
 
 /* ---------- reviews ---------- */
-.rev-top{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:clamp(26px,4vw,60px);align-items:start;margin-bottom:clamp(30px,4vw,52px)}
+.rev-top{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1.3fr) minmax(0,.72fr);gap:clamp(22px,3.4vw,54px);align-items:center;margin-bottom:clamp(28px,3.4vw,46px)}
 .rating{display:flex;align-items:baseline;gap:12px;margin-bottom:8px}
 .rating b{font-family:var(--display);font-size:58px;font-weight:800;line-height:.9;letter-spacing:-.04em}
 .rating .stars{color:var(--ember);font-size:22px;letter-spacing:2px}
 .rating-note{font-size:13.5px;color:#4C5B4E;margin-top:10px;line-height:1.5}
-.badge{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--rule-light);border-radius:3px;padding:12px 14px;margin-top:20px;background:#EDE4CE}
+.badge{display:flex;align-items:center;gap:12px;border:1px solid var(--rule-light);border-radius:3px;padding:12px 14px;background:#EDE4CE}
 .badge img{width:64px;height:64px;flex:0 0 auto}
-.gquotes{margin-top:26px;padding-top:20px;border-top:1px solid var(--rule-light)}
-.gquotes p{font-family:var(--display);font-size:17px;font-weight:600;letter-spacing:-.014em;line-height:1.35;color:var(--ink);margin-bottom:14px}
+.gquotes{border-left:1px solid var(--rule-light);border-right:1px solid var(--rule-light);padding:4px clamp(16px,2.4vw,30px)}
+.gquotes p{font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:-.014em;line-height:1.3;color:var(--ink);margin-bottom:12px}
 .gquotes p:last-of-type{margin-bottom:10px}
 .gquotes span{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#5A6A52}
 .badge b{display:block;font-family:var(--display);font-size:16px;letter-spacing:-.008em}
 .badge span{display:block;font-size:12.5px;color:#4C5B4E;margin-top:2px}
-.notes{columns:2;column-gap:clamp(18px,2.4vw,32px)}
+.notes{columns:3;column-gap:clamp(18px,2.2vw,30px)}
 .note{break-inside:avoid;margin-bottom:16px;border:1px solid var(--rule-light);border-radius:3px;padding:16px 17px;background:#FAF5EA}
 .note .who{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:9px}
 .note .who b{font-family:var(--display);font-size:14.5px;font-weight:700;letter-spacing:-.005em}
 .note .who span{font-family:var(--mono);font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;color:#5A6A52;white-space:nowrap}
 .note p{font-size:14.5px;line-height:1.55;color:#33422F}
 .note footer{margin-top:10px;font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#5A6A52}
-@media (max-width:820px){.notes{columns:1}.rev-top{grid-template-columns:1fr}}
+@media (max-width:1040px){.notes{columns:2}}
+@media (max-width:820px){.notes{columns:1}.rev-top{grid-template-columns:1fr;align-items:start}}
 
 /* ---------- people + community ---------- */
 .people-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(28px,4vw,62px);align-items:start}
@@ -324,7 +327,7 @@ em{font-style:italic}
 .founder p{color:#B3C1AF;line-height:1.62;margin-bottom:14px}
 .founder p.quote{font-size:18px;color:#E2EADC;line-height:1.45;font-family:var(--display);font-weight:600;letter-spacing:-.012em}
 .values{margin-top:28px}
-.values .tag{display:block;margin-bottom:10px}
+.values-h{font-size:clamp(17px,1.4vw,20px);margin-bottom:10px}
 .values ul{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule-dark);border:1px solid var(--rule-dark);margin:0;padding:0;list-style:none}
 .values li{background:var(--canopy);padding:16px 14px 18px}
 .values li b{display:block;font-family:var(--display);font-size:19px;font-weight:700;letter-spacing:-.014em;color:#EDF3E7;line-height:1.15}
@@ -376,8 +379,9 @@ em{font-style:italic}
 .form{border-top:1.5px solid var(--ink);padding-top:18px;margin-top:34px}
 .form h3{font-size:22px;letter-spacing:-.015em;margin-bottom:4px}
 .form .sub{font-size:13.5px;color:#4C5B4E;margin-bottom:18px}
-.fields{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-@media (max-width:620px){.fields{grid-template-columns:1fr}}
+.fields{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.field.wide{grid-column:1/-1}
+@media (max-width:760px){.fields{grid-template-columns:1fr}}
 .field{display:flex;flex-direction:column;gap:6px}
 .field.wide{grid-column:1/-1}
 .field label{font-family:var(--mono);font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:#5A6A5C}
@@ -387,7 +391,7 @@ em{font-style:italic}
   transition:border-color .16s ease,box-shadow .16s ease;
 }
 .field textarea{min-height:92px;resize:vertical}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--sage-deep);box-shadow:0 0 0 3px rgba(140,154,92,.24)}
+.field input:focus,.field textarea:focus{outline:2px solid var(--ember);outline-offset:2px;border-color:var(--sage-deep);box-shadow:none}
 .field input::placeholder,.field textarea::placeholder{color:#5C6857}
 .form-foot{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:16px}
 .form-note{font-family:var(--mono);font-size:12px;letter-spacing:.01em;color:#5A6A52;max-width:46ch;line-height:1.6}
@@ -406,6 +410,7 @@ em{font-style:italic}
 /* ---------- responsive ---------- */
 .hero-photo{display:none}
 .sheet-facts{display:none}
+.pan-hint{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5A6A52;padding:8px 2px 0}
 @media (max-width:1024px){
   .hero .wrap{grid-template-columns:1fr;gap:30px}
   .hero-copy{max-width:60ch}
@@ -417,6 +422,9 @@ em{font-style:italic}
   .brand-txt span{display:none}
 }
 @media (max-width:760px){
+  .sheet-body{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+  .sheet-body svg{min-width:720px}
+  .pan-hint{display:block}
   .notice .wrap{font-size:12px;line-height:1.45;padding-block:7px}
   .brand-mark{width:44px;height:44px}
   .brand-txt b{font-size:14px}
@@ -445,10 +453,10 @@ em{font-style:italic}
 /* ---------- misc ---------- */
 .skip{position:absolute;left:-9999px;top:0;background:var(--ember);color:#fff;padding:10px 16px;z-index:99;border-radius:0 0 3px 0}
 .skip:focus{left:0}
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
-.reveal.in{opacity:1;transform:none}
+.reveal{opacity:0;transition:opacity .6s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1}
 @media (prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
+  .reveal{opacity:1;transition:none}
   .draw{stroke-dashoffset:0!important;transition:none!important}
   .pin,.proj img{transition:none}
 }
@@ -489,25 +497,29 @@ em{font-style:italic}
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="wrap">
-    <div>
-      <h1>Your&nbsp;yard,<br><em>read</em> before<br>it&rsquo;s built.</h1>
-      <p class="hero-copy">Landscape planning, design and installation for Atlanta. Everarde Calk, principal, has spent a decade reading Piedmont clay, slope and summer heat before putting a single plant in the ground.</p>
-      <div class="hero-actions">
-        <a class="btn btn-solid" href="tel:+14046232287">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
-          Call (404) 623-2287
-        </a>
-        <a class="btn btn-ghost" href="#consult">Book a free on-site consultation</a>
+    <div class="hero-top">
+      <div>
+        <h1>Your&nbsp;yard,<br><em>read</em> before<br>it&rsquo;s built.</h1>
+        <p class="hero-copy">Landscape planning, design and installation for Atlanta. Everarde Calk, principal, has spent a decade reading Piedmont clay, slope and summer heat before putting a single plant in the ground.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="tel:+14046232287">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+            Call (404) 623-2287
+          </a>
+          <a class="btn btn-ghost" href="#consult">Book a free on-site consultation</a>
+        </div>
       </div>
-      <figure class="hero-photo">
-        <img src="assets/work-9-2.webp" alt="A completed Atlanta landscape: layered perennial beds, a red-leaved maple and a curving lawn" loading="lazy">
-        <figcaption>Residential work &mdash; Atlanta, GA</figcaption>
-      </figure>
-      <div class="proof">
-        <span class="chip"><span class="star">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <b>5.0</b> &middot; 60+ Google reviews</span>
-        <span class="chip">Nextdoor <b>Neighborhood Favorite</b>, five years recognised</span>
-        <span class="chip">Lic. <b>1855422</b> LGB</span>
-        <span class="chip">Mon&ndash;Sat <b>8&ndash;5</b></span>
+      <div>
+        <figure class="hero-photo">
+          <img src="assets/work-2.webp" alt="A completed Atlanta landscape: a formal lawn, layered perennial beds and a mature red-leaved maple" loading="lazy">
+          <figcaption>Residential work &mdash; Atlanta, GA</figcaption>
+        </figure>
+        <dl class="proof">
+          <div><dt>Google</dt><dd><span class="star" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <b>5.0</b> &middot; 60+ reviews</dd></div>
+          <div><dt>Nextdoor</dt><dd>Neighborhood Favorite, five years recognised</dd></div>
+          <div><dt>Licence</dt><dd>1855422 LGB</dd></div>
+          <div><dt>Hours</dt><dd>Mon&ndash;Sat, 8:00&ndash;5:00</dd></div>
+        </dl>
       </div>
     </div>
 
@@ -517,20 +529,24 @@ em{font-style:italic}
         <span>Sheet 01 &mdash; Existing conditions &amp; plan</span>
         <b>Yogardener &middot; Atlanta</b>
       </div>
+      <p class="pan-hint">Drag to pan the plan &rarr;</p>
       <div class="sheet-body">
-        <svg viewBox="0 0 960 660" role="img" aria-labelledby="planTitle planDesc">
+        <svg viewBox="0 0 960 700" role="img" aria-labelledby="planTitle planDesc">
           <title id="planTitle">Site plan of a typical Atlanta residential lot</title>
-          <desc id="planDesc">A drawn site plan showing an existing house, mature tree canopy, contour lines at two foot intervals, a six percent fall to the south, a French drain along the low point, a permaculture zone marked around the house, proposed native planting and a proposed flagstone patio, two keyed photographs of finished work, and a title block giving the drawing's scale, date and contact details.</desc>
+          <desc id="planDesc">A drawn site plan of an Atlanta residential lot: an existing house with a roof, a front door, a patio door and a stoop; mature tree canopies; four contour lines at two foot intervals falling to the south; a six percent fall arrow; a French drain running to the property line; a permaculture zone marked around the house; proposed planting including a native bed, a rain garden and a flagstone patio; two reference photographs of completed work; a legend; four drawing notes; and a title block giving the drawing's date and contact details.</desc>
           <defs>
             <pattern id="planting" width="11" height="11" patternUnits="userSpaceOnUse" patternTransform="rotate(38)">
-              <line x1="0" y1="0" x2="0" y2="11" stroke="#5E7A4A" stroke-width="1.1" opacity=".40"/>
+              <line x1="0" y1="0" x2="0" y2="11" stroke="var(--z1)" stroke-width="1.1" opacity=".45"/>
             </pattern>
             <pattern id="canopyfill" width="9" height="9" patternUnits="userSpaceOnUse">
-              <circle cx="2" cy="2" r=".9" fill="#4E6B3C" opacity=".40"/>
-              <circle cx="6.5" cy="6" r=".9" fill="#4E6B3C" opacity=".32"/>
+              <circle cx="2" cy="2" r=".9" fill="var(--z1)" opacity=".55"/>
+              <circle cx="6.5" cy="6" r=".9" fill="var(--z1)" opacity=".4"/>
             </pattern>
-            <pattern id="flag" width="16" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-12)">
-              <rect width="16" height="10" fill="none" stroke="#8A5A34" stroke-width=".9" opacity=".75"/>
+            <pattern id="flag" width="15" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-8)">
+              <rect width="15" height="9" fill="none" stroke="#8A5A34" stroke-width=".8" opacity=".7"/>
+            </pattern>
+            <pattern id="bed" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <line x1="0" y1="0" x2="0" y2="7" stroke="#5E6B36" stroke-width="1.1" opacity=".5"/>
             </pattern>
             <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
               <path d="M0 0 L10 5 L0 10 z" fill="#8A5A34"/>
@@ -538,149 +554,193 @@ em{font-style:italic}
             <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
               <path d="M0 0 L10 5 L0 10 z" fill="#415246"/>
             </marker>
-            <clipPath id="plateA"><rect x="690" y="56" width="252" height="189"/></clipPath>
-            <clipPath id="plateB"><rect x="716" y="296" width="226" height="170"/></clipPath>
+            <marker id="arrow-sage" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#5E6B36"/>
+            </marker>
+            <clipPath id="plateA"><rect x="690" y="52" width="122" height="110"/></clipPath>
+            <clipPath id="plateB"><rect x="820" y="52" width="122" height="110"/></clipPath>
+
+            <g id="canopy">
+              <path class="tree-fill" d="M0 -26 a6.5 6.5 0 0 1 6.5 6.5 a6.5 6.5 0 0 1 6.5 6.5 a6.5 6.5 0 0 1 6.5 6.5 a6.5 6.5 0 0 1 6.5 6.5 a6.5 6.5 0 0 1 -6.5 6.5 a6.5 6.5 0 0 1 -6.5 6.5 a6.5 6.5 0 0 1 -6.5 6.5 a6.5 6.5 0 0 1 -6.5 6.5 Z"/>
+              <path class="tree-fill2" d="M0 -26 a6.5 6.5 0 0 1 6.5 6.5 a6.5 6.5 0 0 1 6.5 6.5 a6.5 6.5 0 0 1 6.5 6.5 a6.5 6.5 0 0 1 6.5 6.5 a6.5 6.5 0 0 1 -6.5 6.5 a6.5 6.5 0 0 1 -6.5 6.5 a6.5 6.5 0 0 1 -6.5 6.5 a6.5 6.5 0 0 1 -6.5 6.5 Z"/>
+              <path class="tree-stroke" d="M0 -26 a6.5 6.5 0 0 1 6.5 6.5 a6.5 6.5 0 0 1 6.5 6.5 a6.5 6.5 0 0 1 6.5 6.5 a6.5 6.5 0 0 1 6.5 6.5 a6.5 6.5 0 0 1 -6.5 6.5 a6.5 6.5 0 0 1 -6.5 6.5 a6.5 6.5 0 0 1 -6.5 6.5 a6.5 6.5 0 0 1 -6.5 6.5 Z"/>
+              <circle cx="0" cy="-3" r="2" fill="#5E6B36"/>
+            </g>
           </defs>
 
           <!-- ===== PLAN AREA ===== -->
           <g>
-            <path d="M40 78 L520 50 L664 224 L640 462 L110 490 L26 300 Z" fill="url(#planting)" opacity=".8"/>
+            <!-- planting envelope -->
+            <path d="M40 84 L520 54 L676 230 L652 470 L116 500 L26 306 Z" fill="url(#planting)" opacity=".9"/>
 
             <!-- property line -->
-            <path class="plan-ink dash" style="stroke:#8A7C5E;stroke-width:1.5" d="M40 78 L520 50 L664 224 L640 462 L110 490 L26 300 Z"/>
-            <text class="sheet-label" x="250" y="42" style="font-size:12.5px">PROPERTY LINE</text>
+            <path class="plan-ink dash" style="stroke:#8A7C5E;stroke-width:1.5" d="M40 84 L520 54 L676 230 L652 470 L116 500 L26 306 Z"/>
+            <text class="sheet-label" x="252" y="38" style="font-size:12.5px">PROPERTY LINE</text>
 
-            <!-- contours -->
-            <path class="plan-ink draw" style="--len:520;stroke:#9FAF92;stroke-width:1.1" d="M50 126 C160 102 250 140 358 114 C436 96 512 120 632 100"/>
-            <text class="sheet-label sm" x="596" y="98" style="fill:#6E7E62">984</text>
-            <path class="plan-ink draw" style="--len:540;stroke:#9FAF92;stroke-width:1.1" d="M44 168 C158 142 254 184 360 154 C440 132 516 160 638 136"/>
-            <text class="sheet-label sm" x="596" y="138" style="fill:#6E7E62">986</text>
-            <path class="plan-ink draw" style="--len:540;stroke:#9FAF92;stroke-width:1.1" d="M52 396 C160 370 256 410 352 382 C428 360 502 390 626 366"/>
-            <text class="sheet-label sm" x="596" y="362" style="fill:#6E7E62">980</text>
-
-            <!-- house -->
-            <path class="house-fill" d="M186 196 H336 V240 H370 V320 H186 Z"/>
-            <path d="M186 196 L228 166 H306 L336 196" fill="none" stroke="#2A3A2D" stroke-width="1.3"/>
-            <text class="sheet-label dark" x="196" y="258" style="font-size:12px">EXISTING HOUSE</text>
-            <text class="sheet-label sm" x="196" y="278">+986</text>
-            <path class="plan-ink" style="stroke-width:1.2;stroke-dasharray:3 3" d="M186 300 L146 420"/>
-            <text class="sheet-label sm" x="102" y="442">DRIVE</text>
-
-            <!-- canopies -->
-            <g>
-              <path class="tree-fill" d="M414 128 C410 110 424 94 442 94 C448 78 474 72 490 84 C506 76 526 86 528 104 C540 116 534 138 516 144 C512 160 490 166 476 156 C462 166 440 160 438 144 C424 144 412 138 414 128 Z"/>
-              <path class="tree-fill2" d="M414 128 C410 110 424 94 442 94 C448 78 474 72 490 84 C506 76 526 86 528 104 C540 116 534 138 516 144 C512 160 490 166 476 156 C462 166 440 160 438 144 C424 144 412 138 414 128 Z"/>
-              <path class="tree-stroke" d="M414 128 C410 110 424 94 442 94 C448 78 474 72 490 84 C506 76 526 86 528 104 C540 116 534 138 516 144 C512 160 490 166 476 156 C462 166 440 160 438 144 C424 144 412 138 414 128 Z"/>
-              <path class="tree-stroke" style="stroke-dasharray:3 3" d="M426 126 C424 114 434 104 446 104 C452 92 470 88 482 96 C494 90 510 98 512 110 C520 118 514 132 502 136"/>
-              <text class="sheet-label sm" x="438" y="182">OAK &mdash; 45'</text>
-            </g>
-            <g>
-              <path class="tree-fill" d="M586 196 C582 180 594 166 610 168 C616 154 638 150 650 162 C664 160 676 172 672 186 C678 200 666 214 650 214 C644 228 622 230 614 218 C600 222 584 212 586 196 Z"/>
-              <path class="tree-fill2" d="M586 196 C582 180 594 166 610 168 C616 154 638 150 650 162 C664 160 676 172 672 186 C678 200 666 214 650 214 C644 228 622 230 614 218 C600 222 584 212 586 196 Z"/>
-              <path class="tree-stroke" d="M586 196 C582 180 594 166 610 168 C616 154 638 150 650 162 C664 160 676 172 672 186 C678 200 666 214 650 214 C644 228 622 230 614 218 C600 222 584 212 586 196 Z"/>
-              <text class="sheet-label sm" x="590" y="244">CANOPY</text>
-            </g>
-            <g>
-              <path class="tree-fill" d="M86 378 C84 364 96 352 110 354 C116 338 138 336 148 350 C160 350 168 362 162 374 C166 386 154 398 140 396 C132 410 110 408 104 394 C92 396 84 390 86 378 Z"/>
-              <path class="tree-fill2" d="M86 378 C84 364 96 352 110 354 C116 338 138 336 148 350 C160 350 168 362 162 374 C166 386 154 398 140 396 C132 410 110 408 104 394 C92 396 84 390 86 378 Z"/>
-              <path class="tree-stroke" d="M86 378 C84 364 96 352 110 354 C116 338 138 336 148 350 C160 350 168 362 162 374 C166 386 154 398 140 396 C132 410 110 408 104 394 C92 396 84 390 86 378 Z"/>
-            </g>
-            <g>
-              <path class="tree-fill" d="M214 268 C210 252 222 238 238 240 C244 224 268 224 278 238 C292 240 298 256 288 266 C290 280 276 290 262 286 C252 298 232 294 228 278 C218 280 212 276 214 268 Z"/>
-              <path class="tree-fill2" d="M214 268 C210 252 222 238 238 240 C244 224 268 224 278 238 C292 240 298 256 288 266 C290 280 276 290 262 286 C252 298 232 294 228 278 C218 280 212 276 214 268 Z"/>
-              <path class="tree-stroke" d="M214 268 C210 252 222 238 238 240 C244 224 268 224 278 238 C292 240 298 256 288 266 C290 280 276 290 262 286 C252 298 232 294 228 278 C218 280 212 276 214 268 Z"/>
-            </g>
-
-            <!-- zone 0 -->
-            <ellipse class="zone0" cx="278" cy="258" rx="116" ry="98"/>
-            <text class="sheet-label" x="178" y="148" style="fill:#8A5A34;font-size:12.5px">ZONE 0 &mdash; THE HOUSE</text>
-
-            <!-- proposed native bed -->
-            <path d="M286 336 C330 328 392 336 414 356 C432 374 418 396 384 402 C340 410 296 398 282 378 C272 362 274 344 286 336 Z"
-                  fill="#8C9A5C" opacity=".34" stroke="#5E6B36" stroke-width="1.5"/>
-            <text class="sheet-label" x="272" y="424" style="fill:#4A5A2E;font-size:12.5px">PROPOSED NATIVE BED</text>
-
-            <!-- proposed rain garden -->
-            <circle cx="196" cy="438" r="24" fill="#8C9A5C" opacity=".30" stroke="#5E6B36" stroke-width="1.4" stroke-dasharray="5 4"/>
-            <text class="sheet-label" x="152" y="398" style="fill:#4A5A2E;font-size:12.5px">RAIN GARDEN</text>
-
-            <!-- proposed patio -->
-            <rect x="470" y="336" width="88" height="52" fill="url(#flag)" stroke="#8A5A34" stroke-width="1.4"/>
-            <text class="sheet-label" x="470" y="404" style="fill:#8A5A34;font-size:12.5px">PROPOSED PATIO</text>
-
-            <!-- slope -->
-            <path d="M420 238 L556 292" stroke="#8A5A34" stroke-width="1.7" fill="none" marker-end="url(#arrow)"/>
-            <text class="sheet-label" x="404" y="230" style="fill:#8A5A34;font-size:12.5px">6% FALL</text>
-
-            <!-- drainage -->
-            <path d="M560 284 C640 316 656 380 626 422 C606 452 626 466 652 458"
-                  stroke="#415246" stroke-width="1.5" fill="none" stroke-dasharray="7 5" marker-end="url(#arrow-ink)"/>
-            <text class="sheet-label" x="470" y="430" style="fill:#415246;font-size:12.5px">FRENCH DRAIN</text>
+            <!-- contours: a nested family, elevation falling to the south -->
+            <path class="plan-ink draw" style="--len:700;stroke:#7A6A46;stroke-width:1.4" d="M44 118 C150 88 236 126 344 100 C430 78 508 106 662 84"/>
+            <text class="sheet-label sm" x="618" y="80" style="fill:#6B5B38">988</text>
+            <path class="plan-ink draw" style="--len:700;stroke:#7A6A46;stroke-width:1.4" d="M40 160 C154 128 246 168 352 140 C444 116 512 148 668 122"/>
+            <text class="sheet-label sm" x="622" y="120" style="fill:#6B5B38">984</text>
+            <path class="plan-ink draw" style="--len:700;stroke:#7A6A46;stroke-width:1.4" d="M36 402 C150 372 250 414 352 382 C442 354 516 390 662 358"/>
+            <text class="sheet-label sm" x="612" y="352" style="fill:#6B5B38">980</text>
+            <path class="plan-ink draw" style="--len:700;stroke:#7A6A46;stroke-width:1.4" d="M40 446 C156 416 254 458 356 426 C446 398 520 434 656 404"/>
+            <text class="sheet-label sm" x="606" y="398" style="fill:#6B5B38">976</text>
 
             <!-- north arrow -->
-            <g transform="translate(78,120)">
-              <circle r="20" fill="none" stroke="#2A3A2D" stroke-width="1.2"/>
-              <path d="M0 -15 L6 9 L0 5 L-6 9 Z" fill="#2A3A2D"/>
-              <text class="sheet-label dark sm" x="-4" y="34" style="font-size:12.5px">N</text>
+            <g transform="translate(78,116)">
+              <circle r="19" fill="none" stroke="#2A3A2D" stroke-width="1.2"/>
+              <path d="M0 -14 L5.5 6 L0 2.5 L-5.5 6 Z" fill="#2A3A2D"/>
+              <text class="sheet-label dark sm" x="-3.5" y="32" style="font-size:11px">N</text>
             </g>
 
-            <!-- photo plates -->
+            <!-- canopies -->
+            <use href="#canopy" x="466" y="104" transform="translate(0,0) scale(1.55) translate(-466,-104)"/>
+            <text class="sheet-label sm" x="478" y="162" style="font-size:11.5px">OAK &mdash; 45'</text>
+            <use href="#canopy" x="600" y="132"/>
+            <use href="#canopy" x="110" y="216"/>
+
+            <!-- existing house -->
+            <path class="house-fill" d="M186 196 H336 V232 H370 V320 H186 Z"/>
+            <path d="M186 196 L228 166 H300 L336 196" fill="none" stroke="#2A3A2D" stroke-width="1.4"/>
+            <path d="M336 232 H370" fill="none" stroke="#2A3A2D" stroke-width="1.4"/>
+            <path d="M300 166 L300 196" fill="none" stroke="#2A3A2D" stroke-width="1" opacity=".6"/>
+            <!-- patio door and stoop on the south wall -->
+            <rect x="292" y="312" width="26" height="8" fill="#EAE1CB" stroke="#2A3A2D" stroke-width="1.2"/>
+            <path d="M292 320 H318 M292 312 H318" fill="none" stroke="#2A3A2D" stroke-width=".8" opacity=".55"/>
+            <path d="M290 320 H320 M292 328 H318 M294 336 H316" fill="none" stroke="#2A3A2D" stroke-width="1.1"/>
+            <!-- front door on the west wall -->
+            <rect x="178" y="248" width="8" height="26" fill="#EAE1CB" stroke="#2A3A2D" stroke-width="1.2"/>
+            <text class="sheet-label dark sm" x="196" y="264" style="font-size:11.5px">EXISTING HOUSE</text>
+            <text class="sheet-label sm" x="196" y="284" style="font-size:11.5px">+986</text>
+            <text class="sheet-label sm" x="196" y="342" style="font-size:11px">PATIO DOOR</text>
+
+            <!-- zone 0 -->
+            <ellipse class="zone0" cx="276" cy="262" rx="106" ry="84"/>
+            <text class="sheet-label" x="168" y="146" style="fill:#8A5A34;font-size:12px">ZONE 0 &mdash; THE HOUSE</text>
+
+            <!-- proposed flagstone patio + path from the stoop -->
+            <path d="M322 342 L352 342 L392 316 L424 316" fill="none" stroke="#8A5A34" stroke-width="1.2" opacity=".8"/>
+            <rect x="392" y="296" width="94" height="60" fill="url(#flag)" stroke="#8A5A34" stroke-width="1.5"/>
+            <text class="sheet-label" x="392" y="378" style="fill:#8A5A34;font-size:12px">PROPOSED PATIO</text>
+
+            <!-- proposed native bed -->
+            <path d="M138 404 C186 388 250 392 296 404 C322 412 320 438 292 452 C252 470 176 468 146 450 C120 434 118 412 138 404 Z"
+                  fill="url(#bed)" stroke="#5E6B36" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text class="sheet-label" x="138" y="392" style="fill:#4A5A2E;font-size:12px">PROPOSED NATIVE BED</text>
+
+            <!-- proposed rain garden -->
+            <circle cx="556" cy="376" r="26" fill="#8C9A5C" opacity=".22" stroke="#5E6B36" stroke-width="1.4"/>
+            <circle cx="556" cy="376" r="26" fill="none" stroke="#5E6B36" stroke-width=".9" stroke-dasharray="3 3"/>
+            <path d="M582 376 L606 376" stroke="#5E6B36" stroke-width="1.2" fill="none" marker-end="url(#arrow-sage)"/>
+            <text class="sheet-label" x="498" y="428" style="fill:#4A5A2E;font-size:12px">RAIN GARDEN</text>
+
+            <!-- slope -->
+            <path d="M406 192 L598 252" stroke="#8A5A34" stroke-width="1.7" fill="none" marker-end="url(#arrow)"/>
+            <text class="sheet-label" x="404" y="186" style="fill:#8A5A34;font-size:12px">6% FALL TO SOUTH</text>
+
+            <!-- french drain -->
+            <path d="M520 246 C578 268 610 316 610 372 C610 416 622 444 654 456"
+                  stroke="#415246" stroke-width="1.5" fill="none" stroke-dasharray="7 5" marker-end="url(#arrow-ink)"/>
+            <path d="M470 430 L600 408" stroke="#415246" stroke-width=".8" fill="none" opacity=".8"/>
+            <text class="sheet-label" x="360" y="446" style="fill:#415246;font-size:12px">FRENCH DRAIN</text>
+
+            <!-- drive -->
+            <path class="plan-ink" style="stroke-width:1.2;stroke-dasharray:3 3" d="M120 498 C138 440 158 386 182 330"/>
+            <text class="sheet-label sm" x="60" y="452" style="font-size:11px">DRIVE</text>
+
+            <!-- ===== SIDEBAR ===== -->
             <g>
-              <text class="sheet-label" x="690" y="38" style="font-size:12.5px">PHOTO PLATES</text>
-              <image href="assets/prado-193.webp" x="690" y="56" width="252" height="189" preserveAspectRatio="xMidYMid slice" clip-path="url(#plateA)"/>
-              <rect x="690" y="56" width="252" height="189" fill="none" stroke="#2A3A2D" stroke-width="1.4"/>
-              <text class="sheet-label" x="690" y="262" style="font-size:12.5px">PLATE 1 &mdash; SOUTH PRADO, ATLANTA</text>
-              <g transform="rotate(-1.4 829 381)">
-                <image href="assets/work-9-2.webp" x="716" y="296" width="226" height="170" preserveAspectRatio="xMidYMid slice" clip-path="url(#plateB)"/>
-                <rect x="716" y="296" width="226" height="170" fill="none" stroke="#2A3A2D" stroke-width="1.4"/>
+              <text class="sheet-label" x="690" y="34" style="font-size:12px">REFERENCE PHOTOGRAPHS</text>
+              <image href="assets/prado-193.webp" x="690" y="52" width="122" height="110" preserveAspectRatio="xMidYMid slice" clip-path="url(#plateA)"/>
+              <rect x="690" y="52" width="122" height="110" fill="none" stroke="#2A3A2D" stroke-width="1.2"/>
+              <text class="sheet-label sm" x="690" y="178" style="font-size:10.5px">PLATE 1</text>
+              <text class="sheet-label sm" x="690" y="192" style="font-size:10.5px">SOUTH PRADO</text>
+              <image href="assets/work-9-2.webp" x="820" y="52" width="122" height="110" preserveAspectRatio="xMidYMid slice" clip-path="url(#plateB)"/>
+              <rect x="820" y="52" width="122" height="110" fill="none" stroke="#2A3A2D" stroke-width="1.2"/>
+              <text class="sheet-label sm" x="820" y="178" style="font-size:10.5px">PLATE 2</text>
+              <text class="sheet-label sm" x="820" y="192" style="font-size:10.5px">RESIDENTIAL WORK</text>
+
+              <!-- legend -->
+              <line x1="690" y1="212" x2="942" y2="212" stroke="#2A3A2D" stroke-width="1.2"/>
+              <text class="sheet-label" x="690" y="234" style="font-size:12px">KEY</text>
+              <g transform="translate(690,252)">
+                <line x1="0" y1="0" x2="22" y2="0" stroke="#8A7C5E" stroke-width="1.3" stroke-dasharray="5 4"/>
+                <text class="sheet-label sm" x="32" y="4" style="font-size:11.5px">Property line</text>
               </g>
-              <text class="sheet-label" x="700" y="486" style="font-size:12.5px">PLATE 2 &mdash; RESIDENTIAL WORK</text>
+              <g transform="translate(690,278)">
+                <line x1="0" y1="0" x2="22" y2="0" stroke="#7A6A46" stroke-width="1.4"/>
+                <text class="sheet-label sm" x="32" y="4" style="font-size:11.5px">Contour, 2' interval</text>
+              </g>
+              <g transform="translate(690,304)">
+                <use href="#canopy" x="10" y="0" transform="scale(0.62) translate(-10,0)"/>
+                <text class="sheet-label sm" x="34" y="4" style="font-size:11.5px">Existing canopy</text>
+              </g>
+              <g transform="translate(690,334)">
+                <rect x="0" y="-7" width="22" height="14" fill="url(#bed)" stroke="#5E6B36" stroke-width="1.2" stroke-dasharray="5 3"/>
+                <text class="sheet-label sm" x="32" y="4" style="font-size:11.5px">Proposed planting</text>
+              </g>
+              <g transform="translate(690,360)">
+                <rect x="0" y="-7" width="22" height="14" fill="url(#flag)" stroke="#8A5A34" stroke-width="1.2"/>
+                <text class="sheet-label sm" x="32" y="4" style="font-size:11.5px">Proposed hardscape</text>
+              </g>
+              <g transform="translate(690,386)">
+                <line x1="0" y1="0" x2="22" y2="0" stroke="#415246" stroke-width="1.4" stroke-dasharray="6 4"/>
+                <text class="sheet-label sm" x="32" y="4" style="font-size:11.5px">French drain</text>
+              </g>
+              <g transform="translate(690,412)">
+                <ellipse cx="11" cy="0" rx="11" ry="8" fill="none" stroke="#8A5A34" stroke-width="1.2" stroke-dasharray="5 3"/>
+                <text class="sheet-label sm" x="32" y="4" style="font-size:11.5px">Zone 0, daily orbit</text>
+              </g>
+
+              <!-- notes -->
+              <line x1="690" y1="436" x2="942" y2="436" stroke="#2A3A2D" stroke-width="1.2"/>
+              <text class="sheet-label" x="690" y="458" style="font-size:12px">NOTES</text>
+              <text class="sheet-label sm" x="690" y="482" style="font-size:11px">1. PRESERVE EXISTING CANOPY</text>
+              <text class="sheet-label sm" x="690" y="500" style="font-size:11px">2. REGRADE 6% FALL AWAY FROM HOUSE</text>
+              <text class="sheet-label sm" x="690" y="518" style="font-size:11px">3. DRAIN TO THE PROPERTY LINE</text>
+              <text class="sheet-label sm" x="690" y="536" style="font-size:11px">4. NATIVE BED — NO CONVENTIONAL LAWN</text>
             </g>
           </g>
 
           <!-- ===== TITLE BLOCK ===== -->
           <g>
-            <rect x="0" y="510" width="960" height="150" fill="#EAE1CB"/>
-            <rect x="0" y="510" width="960" height="150" fill="none" stroke="#2A3A2D" stroke-width="1.6"/>
-            <line x1="216" y1="510" x2="216" y2="660" stroke="#2A3A2D" stroke-width="1.2"/>
-            <line x1="396" y1="510" x2="396" y2="660" stroke="#2A3A2D" stroke-width="1.2"/>
-            <line x1="520" y1="510" x2="520" y2="660" stroke="#2A3A2D" stroke-width="1.2"/>
-            <line x1="724" y1="510" x2="724" y2="660" stroke="#2A3A2D" stroke-width="1.2"/>
+            <rect x="0" y="560" width="960" height="140" fill="#EAE1CB"/>
+            <rect x="0" y="560" width="960" height="140" fill="none" stroke="#2A3A2D" stroke-width="1.6"/>
+            <line x1="216" y1="560" x2="216" y2="700" stroke="#2A3A2D" stroke-width="1.2"/>
+            <line x1="396" y1="560" x2="396" y2="700" stroke="#2A3A2D" stroke-width="1.2"/>
+            <line x1="586" y1="560" x2="586" y2="700" stroke="#2A3A2D" stroke-width="1.2"/>
+            <line x1="786" y1="560" x2="786" y2="700" stroke="#2A3A2D" stroke-width="1.2"/>
 
-            <text class="sheet-label" x="16" y="538" style="font-size:12.5px">Project</text>
-            <text class="sheet-label dark" x="16" y="562" style="font-size:18px;font-weight:700">AN ATLANTA LOT</text>
-            <text class="sheet-label" x="16" y="586" style="font-size:12px">Sheet 01 &mdash; Existing</text>
-            <text class="sheet-label" x="16" y="604" style="font-size:12px">conditions &amp; plan</text>
-            <text class="sheet-label" x="16" y="636" style="font-size:12px">Yogardener, LLC</text>
+            <text class="sheet-label" x="16" y="588" style="font-size:12px">Project</text>
+            <text class="sheet-label dark" x="16" y="614" style="font-size:17px;font-weight:700">AN ATLANTA LOT</text>
+            <text class="sheet-label" x="16" y="638" style="font-size:12px">Sheet 01 &mdash; Existing</text>
+            <text class="sheet-label" x="16" y="658" style="font-size:12px">conditions &amp; proposed plan</text>
+            <text class="sheet-label" x="16" y="682" style="font-size:12px">Yogardener, LLC</text>
 
-            <text class="sheet-label" x="232" y="538" style="font-size:12.5px">Drawn by</text>
-            <text class="sheet-label dark" x="232" y="562" style="font-size:18px;font-weight:700">Everarde Calk</text>
-            <text class="sheet-label" x="232" y="586" style="font-size:12px">Principal</text>
-            <text class="sheet-label" x="232" y="604" style="font-size:12px">Planning since 2015</text>
-            <text class="sheet-label" x="232" y="636" style="font-size:12px">Atlanta, Georgia</text>
+            <text class="sheet-label" x="232" y="588" style="font-size:12px">Drawn by</text>
+            <text class="sheet-label dark" x="232" y="614" style="font-size:17px;font-weight:700">Everarde Calk</text>
+            <text class="sheet-label" x="232" y="638" style="font-size:12px">Principal</text>
+            <text class="sheet-label" x="232" y="658" style="font-size:12px">Planning since 2015</text>
+            <text class="sheet-label" x="232" y="682" style="font-size:12px">Atlanta, Georgia</text>
 
-            <text class="sheet-label" x="412" y="538" style="font-size:12.5px">Scale &middot; date</text>
-            <text class="sheet-label dark" x="412" y="560" style="font-size:18px;font-weight:700">1&quot; = 20'</text>
-            <g transform="translate(412,574)">
-              <rect x="0" y="0" width="22" height="6" fill="#2A3A2D"/>
-              <rect x="22" y="0" width="22" height="6" fill="none" stroke="#2A3A2D" stroke-width="1"/>
-              <rect x="44" y="0" width="22" height="6" fill="#2A3A2D"/>
-              <text class="sheet-label sm" x="0" y="19" style="font-size:11px">0</text>
-              <text class="sheet-label sm" x="38" y="19" style="font-size:11px">20'</text>
-            </g>
-            <text class="sheet-label" x="412" y="636" style="font-size:12px">Nov 2026</text>
+            <text class="sheet-label" x="412" y="588" style="font-size:12px">Drawing</text>
+            <text class="sheet-label dark" x="412" y="614" style="font-size:17px;font-weight:700">Sheet 01 of 01</text>
+            <text class="sheet-label" x="412" y="638" style="font-size:12px">Scale &mdash; not to scale</text>
+            <text class="sheet-label" x="412" y="658" style="font-size:12px">Issued for review</text>
+            <text class="sheet-label" x="412" y="682" style="font-size:12px">Nov 2026</text>
 
-            <text class="sheet-label" x="536" y="538" style="font-size:12.5px">Contact</text>
-            <text class="sheet-label dark" x="536" y="562" style="font-size:18px;font-weight:700">(404) 623-2287</text>
-            <text class="sheet-label" x="536" y="586" style="font-size:12px">yogardener404@gmail.com</text>
-            <text class="sheet-label" x="536" y="606" style="font-size:12px">1226 Zonolite Rd NE</text>
-            <text class="sheet-label" x="536" y="636" style="font-size:12px">Mon&ndash;Sat, 8:00&ndash;5:00</text>
+            <text class="sheet-label" x="604" y="588" style="font-size:12px">Contact</text>
+            <text class="sheet-label dark" x="604" y="614" style="font-size:18px;font-weight:700">(404) 623-2287</text>
+            <text class="sheet-label" x="604" y="638" style="font-size:12px">yogardener404@gmail.com</text>
+            <text class="sheet-label" x="604" y="658" style="font-size:12px">1226 Zonolite Rd NE</text>
+            <text class="sheet-label" x="604" y="682" style="font-size:12px">Mon&ndash;Sat, 8:00&ndash;5:00</text>
 
-            <text class="sheet-label" x="740" y="538" style="font-size:12.5px">Next step</text>
-            <text class="sheet-label dark" x="740" y="562" style="font-size:18px;font-weight:700">Free consultation</text>
-            <text class="sheet-label" x="740" y="586" style="font-size:12px">We reply within one</text>
-            <text class="sheet-label" x="740" y="604" style="font-size:12px">business day.</text>
-            <text class="sheet-label" x="740" y="636" style="font-size:12px">Concept by Keystone</text>
+            <text class="sheet-label" x="796" y="588" style="font-size:12px">Next step</text>
+            <text class="sheet-label dark" x="796" y="614" style="font-size:14px;font-weight:700">Free consultation</text>
+            <text class="sheet-label" x="796" y="638" style="font-size:12px">We reply within one</text>
+            <text class="sheet-label" x="796" y="658" style="font-size:12px">business day.</text>
+            <text class="sheet-label" x="796" y="682" style="font-size:12px">Concept by Keystone</text>
           </g>
         </svg>
       </div>
@@ -706,7 +766,8 @@ em{font-style:italic}
       </div>
       <p class="monthnote" aria-live="polite">
         <b id="mn-title">March &mdash; Wait for green-up</b>
-        <span id="mn-sub">The Atlanta year</span>
+        <span id="mn-task">The best month to lime, but no nitrogen on warm-season turf until soil at 4&Prime; holds 65&deg;F and rising.</span>
+        <span id="mn-cite">UGA Fulton Extension</span>
       </p>
     </div>
   </div>
@@ -721,61 +782,97 @@ em{font-style:italic}
     </div>
     <div class="land-grid">
       <figure class="section-svg">
-        <svg viewBox="0 0 760 430" role="img" aria-labelledby="csTitle csDesc">
-          <title id="csTitle">Cross-section of an Atlanta hillside lot</title>
-          <desc id="csDesc">A drawn cross-section showing a house on a six percent slope, a layer of compacted red clay, a drainage swale at the low point, and the root zone of a native tree reaching the amended soil.</desc>
+        <svg viewBox="0 0 760 560" role="img" aria-labelledby="csTitle csDesc">
+          <title id="csTitle">Section A-A through an Atlanta hillside lot</title>
+          <desc id="csDesc">A drawn cross-section: a house standing on a six percent fall, two feet of topsoil over compacted red clay, a shallow swale at the low point capturing runoff, and a native canopy tree whose roots reach the amended clay.</desc>
           <defs>
-            <pattern id="clay" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(28)">
-              <line x1="0" y1="0" x2="0" y2="12" stroke="#A8451F" stroke-width="1.4" opacity=".34"/>
+            <pattern id="xclay" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(28)">
+              <line x1="0" y1="0" x2="0" y2="10" stroke="#A8451F" stroke-width="1" opacity=".22"/>
             </pattern>
-            <pattern id="topsoil" width="10" height="10" patternUnits="userSpaceOnUse">
-              <circle cx="3" cy="3" r="1" fill="#5E7A4A" opacity=".45"/>
-              <circle cx="8" cy="7" r="1" fill="#5E7A4A" opacity=".35"/>
+            <pattern id="xsoil" width="9" height="9" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1" fill="#5E6B36" opacity=".5"/>
+              <circle cx="6" cy="6" r="1" fill="#5E6B36" opacity=".38"/>
             </pattern>
+            <marker id="xflow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#415246"/>
+            </marker>
           </defs>
 
-          <!-- ground line -->
-          <path d="M20 150 C120 142 190 168 270 186 C350 204 430 226 520 254 C610 282 680 300 740 312"
-                fill="none" stroke="#E6EDDF" stroke-width="3"/>
+          <rect x="0" y="0" width="760" height="560" fill="var(--vellum)"/>
+          <rect x="0" y="0" width="760" height="560" fill="none" stroke="#2A3A2D" stroke-width="1.6"/>
+
           <!-- soil body -->
-          <path d="M20 150 C120 142 190 168 270 186 C350 204 430 226 520 254 C610 282 680 300 740 312 L740 420 L20 420 Z" fill="#243428"/>
-          <path d="M20 150 C120 142 190 168 270 186 C350 204 430 226 520 254 C610 282 680 300 740 312 L740 420 L20 420 Z" fill="url(#clay)" opacity=".9"/>
-          <!-- topsoil band -->
-          <path d="M20 150 C120 142 190 168 270 186 C350 204 430 226 520 254 C610 282 680 300 740 312
-                   C676 332 600 316 508 288 C420 262 342 240 264 222 C186 204 116 178 20 186 Z"
-                fill="url(#topsoil)" opacity=".8"/>
-          <path d="M20 150 C120 142 190 168 270 186 C350 204 430 226 520 254 C610 282 680 300 740 312"
-                fill="none" stroke="#5E7A4A" stroke-width="1.6"/>
+          <path d="M40 148 C150 150 240 172 320 196 C400 220 470 248 536 268 C566 279 576 300 600 300 C624 300 640 286 672 288 C700 290 716 294 730 298 L730 470 L40 470 Z" fill="#E7DCC5"/>
+          <path d="M40 148 C150 150 240 172 320 196 C400 220 470 248 536 268 C566 279 576 300 600 300 C624 300 640 286 672 288 C700 290 716 294 730 298 L730 470 L40 470 Z" fill="url(#xclay)"/>
+          <!-- topsoil band, 2' deep, following the grade -->
+          <path d="M40 148 C150 150 240 172 320 196 C400 220 470 248 536 268 C566 279 576 300 600 300 C624 300 640 286 672 288 C700 290 716 294 730 298
+                   C716 312 700 308 672 306 C640 304 624 318 600 318 C576 318 564 297 534 286 C468 266 398 238 318 214 C238 190 148 168 40 166 Z"
+                fill="url(#xsoil)" opacity=".95"/>
+          <!-- grade line -->
+          <path d="M40 148 C150 150 240 172 320 196 C400 220 470 248 536 268 C566 279 576 300 600 300 C624 300 640 286 672 288 C700 290 716 294 730 298"
+                fill="none" stroke="#2A3A2D" stroke-width="2"/>
 
-          <!-- house -->
-          <path d="M60 150 L60 84 L142 84 L142 150" fill="none" stroke="#E6EDDF" stroke-width="2.4"/>
-          <path d="M50 84 L101 48 L152 84" fill="none" stroke="#E6EDDF" stroke-width="2.4"/>
-          <text class="sheet-label" x="58" y="34" style="fill:#E6EDDF">HOUSE &mdash; +986</text>
+          <!-- house on the high side -->
+          <path d="M62 146 L62 86 H142 V146" fill="none" stroke="#2A3A2D" stroke-width="2"/>
+          <path d="M50 86 L102 48 L154 86" fill="none" stroke="#2A3A2D" stroke-width="2"/>
+          <path d="M56 146 H148" fill="none" stroke="#2A3A2D" stroke-width="2.6"/>
+          <text class="sheet-label dark sm" x="46" y="36" style="font-size:12px">HOUSE &mdash; +986</text>
+          <text class="sheet-label sm" x="30" y="462" style="font-size:12px">COMPACTED RED CLAY &mdash; GEORGIA PIEDMONT</text>
 
-          <!-- swale -->
-          <path d="M420 232 C470 246 510 268 520 290 C530 312 560 320 590 314"
-                fill="none" stroke="#A8CFE4" stroke-width="3" stroke-dasharray="6 5"/>
-          <text class="sheet-label" x="386" y="330" style="fill:#A8CFE4">SWALE &mdash; RUNOFF CAPTURE</text>
-
-          <!-- tree roots -->
-          <g stroke="#7FA05E" stroke-width="1.8" fill="none" opacity=".95">
-            <path d="M640 300 C634 330 646 348 638 376"/>
-            <path d="M640 300 C664 316 668 340 660 362"/>
-            <path d="M640 300 C616 312 606 330 596 350"/>
+          <!-- 2' topsoil dimension -->
+          <g stroke="#415246" stroke-width="1" opacity=".85">
+            <line x1="238" y1="196" x2="238" y2="214"/>
+            <line x1="234" y1="196" x2="242" y2="196"/>
+            <line x1="234" y1="214" x2="242" y2="214"/>
           </g>
-          <path d="M640 300 C626 282 618 268 624 252 C630 236 654 234 662 250 C670 266 654 284 640 300Z"
-                fill="#39513C" stroke="#7FA05E" stroke-width="1.8"/>
-          <text class="sheet-label" x="676" y="250" style="fill:#E6EDDF">NATIVE CANOPY</text>
+          <text class="sheet-label sm" x="250" y="210" style="font-size:12px">2' TOPSOIL</text>
 
-          <!-- dimension -->
-          <g stroke="#C3CDBE" stroke-width="1" opacity=".6">
-            <line x1="212" y1="192" x2="212" y2="248"/>
-            <line x1="208" y1="192" x2="216" y2="192"/>
-            <line x1="208" y1="248" x2="216" y2="248"/>
+          <!-- swale at grade -->
+          <path d="M552 278 C576 292 578 312 600 312 C618 312 626 300 642 296" fill="none" stroke="#415246" stroke-width="1.6" marker-end="url(#xflow)"/>
+          <text class="sheet-label sm" x="470" y="352" style="font-size:12px">SWALE &mdash; RUNOFF CAPTURE</text>
+          <path d="M500 254 L548 276" stroke="#415246" stroke-width=".9" fill="none" opacity=".8"/>
+
+          <!-- native canopy tree, same symbol as the plan -->
+          <g>
+            <path d="M610 288 C612 268 608 252 610 236" stroke="#5E6B36" stroke-width="2.4" fill="none"/>
+            <path d="M610 288 C598 310 602 330 596 350" stroke="#5E6B36" stroke-width="1.5" fill="none" opacity=".9"/>
+            <path d="M610 288 C624 306 628 326 622 344" stroke="#5E6B36" stroke-width="1.5" fill="none" opacity=".9"/>
+            <use href="#canopy" x="610" y="216"/>
+            <text class="sheet-label sm" x="596" y="176" style="font-size:12px">NATIVE CANOPY</text>
           </g>
-          <text class="sheet-label" x="222" y="226" style="fill:#E6EDDF">2' TOPSOIL</text>
 
-          <text class="sheet-label" x="26" y="404" style="fill:#93A18C">COMPACTED RED CLAY &mdash; GEORGIA PIEDMONT</text>
+          <!-- section label -->
+          <g>
+            <line x1="40" y1="440" x2="150" y2="440" stroke="#2A3A2D" stroke-width="2.6"/>
+            <circle cx="95" cy="440" r="13" fill="#F3ECDD" stroke="#2A3A2D" stroke-width="1.4"/>
+            <text class="sheet-label dark sm" x="86" y="445" style="font-size:13px">A</text>
+            <text class="sheet-label sm" x="40" y="426" style="font-size:12px">SECTION A-A</text>
+          </g>
+
+          <!-- title block -->
+          <g>
+            <rect x="0" y="470" width="760" height="90" fill="#EAE1CB"/>
+            <line x1="0" y1="470" x2="760" y2="470" stroke="#2A3A2D" stroke-width="1.6"/>
+            <line x1="196" y1="470" x2="196" y2="560" stroke="#2A3A2D" stroke-width="1.2"/>
+            <line x1="392" y1="470" x2="392" y2="560" stroke="#2A3A2D" stroke-width="1.2"/>
+            <line x1="588" y1="470" x2="588" y2="560" stroke="#2A3A2D" stroke-width="1.2"/>
+
+            <text class="sheet-label" x="14" y="496" style="font-size:12px">Section</text>
+            <text class="sheet-label dark" x="14" y="524" style="font-size:18px;font-weight:700">A-A</text>
+            <text class="sheet-label" x="14" y="546" style="font-size:12px">Through a typical lot</text>
+
+            <text class="sheet-label" x="210" y="496" style="font-size:12px">Subject</text>
+            <text class="sheet-label dark" x="210" y="524" style="font-size:14px;font-weight:700">Atlanta Piedmont lot</text>
+            <text class="sheet-label" x="210" y="546" style="font-size:12px">6% fall to the south</text>
+
+            <text class="sheet-label" x="406" y="496" style="font-size:12px">Ground</text>
+            <text class="sheet-label dark" x="406" y="524" style="font-size:16px;font-weight:700">Red clay, amended</text>
+            <text class="sheet-label" x="406" y="546" style="font-size:12px">2&prime; topsoil over clay</text>
+
+            <text class="sheet-label" x="602" y="496" style="font-size:12px">Drawn by</text>
+            <text class="sheet-label dark" x="602" y="524" style="font-size:16px;font-weight:700">Everarde Calk</text>
+            <text class="sheet-label" x="602" y="546" style="font-size:12px">Concept by Keystone</text>
+          </g>
         </svg>
       </figure>
       <div class="facts">
@@ -814,7 +911,6 @@ em{font-style:italic}
     <div class="scope-grid">
       <div>
         <div class="track">
-          <span class="tag">Track one</span>
           <h3>Hardscape</h3>
           <ul class="lines">
             <li><div><b>Patios &amp; outdoor kitchens</b><span>Paver and stone patios engineered for Atlanta slopes, soil and storm runoff.</span></div></li>
@@ -825,7 +921,6 @@ em{font-style:italic}
           </ul>
         </div>
         <div class="track">
-          <span class="tag">Track two</span>
           <h3>Front yard makeovers</h3>
           <ul class="lines">
             <li><div><b>Plant &amp; tree design</b><span>Intentional selection for your light, your soil and the life of the planting.</span></div></li>
@@ -835,7 +930,6 @@ em{font-style:italic}
           </ul>
         </div>
         <div class="track">
-          <span class="tag">Track three</span>
           <h3>Backyard renovations</h3>
           <ul class="lines">
             <li><div><b>Outdoor living areas</b><span>Rooms outdoors: patios, seating, fire features and lighting.</span></div></li>
@@ -848,7 +942,7 @@ em{font-style:italic}
       </div>
       <aside>
         <div class="process">
-          <span class="tag">How a project runs</span>
+          <h3>How a project runs</h3>
           <ol>
             <li><b>We walk the property</b><p>You tell us the vision. We identify what your land actually needs &mdash; sun, slope, water, existing roots.</p></li>
             <li><b>You get a plan and a line-item quote</b><p>Materials, timing and a detailed quote, priced before a shovel goes in. Full transparency on every element.</p></li>
@@ -908,17 +1002,17 @@ em{font-style:italic}
       <div>
         <div class="rating"><b>5.0</b><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
         <p class="rating-note">More than sixty Google reviews and counting. A Nextdoor Neighborhood Favorite in five separate years &mdash; and a favourite in 584 neighbourhoods across metro Atlanta.</p>
-        <div class="badge">
-          <img src="assets/nextdoor-award.png" alt="Nextdoor 2026 Neighborhood Fave award">
-          <span><b>Nextdoor Neighborhood Fave</b><span>2021, 2023, 2024, 2025 and 2026</span></span>
-        </div>
-        <div class="gquotes">
-          <p>&ldquo;Work was done perfectly and very quickly for a fair price.&rdquo;</p>
-          <p>&ldquo;The quality of the project is superb and the service has been outstanding.&rdquo;</p>
-          <span>Google&rsquo;s own highlighted lines from the reviews</span>
-        </div>
       </div>
-      <div>
+      <div class="gquotes">
+        <p>&ldquo;Work was done perfectly and very quickly for a fair price.&rdquo;</p>
+        <p>&ldquo;The quality of the project is superb and the service has been outstanding.&rdquo;</p>
+        <span>Google&rsquo;s own highlighted lines from the reviews</span>
+      </div>
+      <div class="badge">
+        <img src="assets/nextdoor-award.png" alt="Nextdoor 2026 Neighborhood Fave award">
+        <span><b>Nextdoor Neighborhood Fave</b><span>2021, 2023, 2024, 2025 and 2026</span></span>
+      </div>
+    </div>
         <div class="notes">
           <article class="note">
             <div class="who"><b>Lulu Wang</b><span>Google &middot; 5&#9733;</span></div>
@@ -981,8 +1075,6 @@ em{font-style:italic}
             <footer>Google review</footer>
           </article>
         </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1001,7 +1093,7 @@ em{font-style:italic}
         <p>He trained in Permaculture Design with Stephen Brooks and Sarah Wu at the Global Eclipse Gathering in 2017, then brought the method home: &ldquo;In permaculture design, we refer to this sphere of influence as &lsquo;Zone 0&rsquo; &mdash; the home.&rdquo;</p>
         <p>He is now on the advisory board of Concrete Jungle, the largest food rescue programme in the Southeast.</p>
         <div class="values">
-          <span class="tag">His working values, in his own words</span>
+          <h3 class="values-h">His working values</h3>
           <ul>
             <li><b>Earth care</b></li>
             <li><b>People care</b></li>
@@ -1125,41 +1217,41 @@ em{font-style:italic}
 <script>
 (function(){
   var MONTHS=[
-    ["January","Test the soil"],
-    ["February","Prune before spring"],
-    ["March","Wait for green-up"],
-    ["April","Aerate the fescue"],
-    ["May","Open the season"],
-    ["June","Water deep, water rare"],
-    ["July","Expect the swoon"],
-    ["August","Raise the blade"],
-    ["September","Sow the fescue"],
-    ["October","The busy month"],
-    ["November","Shut the water off"],
-    ["December","Put the ground to bed"]
+    ["January","Test the soil","About 40% of the soil samples tested need lime, and lime takes months to react. Winter is when the test goes in so March can act on it.","UGA Soil Handbook"],
+    ["February","Prune before spring","Buds swell mid-February in south Georgia, and February is the ideal month to lay new sod.","UGA B-961"],
+    ["March","Wait for green-up","The best month to lime, but no nitrogen on warm-season turf until soil at 4\u2033 holds 65\u00b0F and rising.","UGA Fulton Extension"],
+    ["April","Aerate the fescue","April is a best month for core aeration, and tall fescue is the Piedmont\u2019s grass.","UGA Turf Calendar"],
+    ["May","Open the season","Core aeration for bermuda, zoysia and centipede. Warm-season sod goes in from late April.","UGA Turf Calendars"],
+    ["June","Water deep, water rare","About an inch a week, twice a week. In a city taking 50 inches of rain, more water is the problem, not less.","UGA IPM, 2020"],
+    ["July","Expect the swoon","The hottest and wettest month here. Dollar spot and brown patch peak at 75\u201385\u00b0F; fescue opens its canopy until late September.","UGA IPM, 2020"],
+    ["August","Raise the blade","Mowing height goes up half an inch in heat. Azaleas are not pruned after mid-July.","UGA Turf Calendar"],
+    ["September","Sow the fescue","September and October are ideal for establishing tall fescue; seed germinates in 5\u201310 days.","UGA Fulton Extension"],
+    ["October","The busy month","Core aeration, fall fertilisation, winter preemergence and irrigation winterization.","UGA Turfgrass Calendars"],
+    ["November","Shut the water off","Drain the lines, backflush the filters, remove every part that can hold water.","UGA B-1439"],
+    ["December","Put the ground to bed","Mulch 2\u20133\u2033 deep over root zones and no farther than the drip line.","UGA CAES"]
   ];
   /* seasonal planting colour on the plan */
   var SEASON=[
-    {z:"#6E7A5C",s:"#7E8C63"},   /* winter dormant */
-    {z:"#5E7A4A",s:"#6B8A4E"},   /* spring green-up */
-    {z:"#7E9152",s:"#93A25E"},   /* summer */
-    {z:"#8A6A3C",s:"#A07C45"}    /* autumn */
+    {z:"#6E7A5C"},   /* winter dormant */
+    {z:"#5E7A4A"},   /* spring green-up */
+    {z:"#7E9152"},   /* summer */
+    {z:"#8A6A3C"}    /* autumn */
   ];
-  var seasonOf=[0,0,0,1,1,2,2,2,3,3,3,0];
+  var seasonOf=[0,0,1,1,2,2,2,2,3,3,3,0];
 
   var sheet=document.getElementById("sheet");
   var tEl=document.getElementById("mn-title");
-  var sEl=document.getElementById("mn-sub");
+  var kEl=document.getElementById("mn-task");
+  var cEl=document.getElementById("mn-cite");
   var buttons=Array.prototype.slice.call(document.querySelectorAll(".rail button"));
 
   function apply(i){
     var s=SEASON[seasonOf[i]];
     sheet.style.setProperty("--z1",s.z);
-    sheet.style.setProperty("--z2",s.s);
-    sheet.style.setProperty("--z3",s.z);
     buttons.forEach(function(b,bi){ b.setAttribute("aria-pressed", bi===i?"true":"false"); });
-    tEl.textContent=MONTHS[i][0]+" — "+MONTHS[i][1];
-    sEl.textContent="The Atlanta year";
+    tEl.textContent=MONTHS[i][0]+" \u2014 "+MONTHS[i][1];
+    kEl.textContent=MONTHS[i][2];
+    cEl.textContent=MONTHS[i][3];
   }
   buttons.forEach(function(b,i){ b.addEventListener("click",function(){ apply(i); }); });
   apply(2);
@@ -1169,7 +1261,7 @@ em{font-style:italic}
   var planSvg=sheet.querySelector("svg");
   function fitSheet(){
     var narrow=window.innerWidth<760;
-    planSvg.setAttribute("viewBox", narrow ? "0 0 960 512" : "0 0 960 660");
+    planSvg.setAttribute("viewBox", narrow ? "0 0 960 560" : "0 0 960 700");
   }
   fitSheet();
   window.addEventListener("resize",fitSheet);
