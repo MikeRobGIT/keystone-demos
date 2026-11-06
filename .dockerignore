@@ -1,0 +1,6 @@
+*
+!deploy/
+!deploy/nginx.conf
+!clients/
+!clients/yogardener/
+!clients/yogardener/**

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Yogardener — Your yard, known by season. | Marietta GA</title>
+<meta name="description" content="Lawn and garden care in south Cobb. Dated entries, seasonal rhythm, one gardener who pays attention. Call (404) 623-2287.">
+<style>
+  :root{
+    --paper:#F7F3E8;
+    --paper-deep:#EFE9D8;
+    --ink:#2C3A2F;
+    --ink-soft:#4E5D50;
+    --rule:rgba(44,58,47,.16);
+    --rule-strong:rgba(44,58,47,.45);
+    --red:#B4432E;
+    --red-deep:#93351F;
+    --red-ink:#8F331F;
+    --tape-green:rgba(120,150,105,.4);
+    --tape-red:rgba(180,67,46,.28);
+    --tag:#FFFDF7;
+    --serif:Georgia,'Times New Roman',serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:17px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--red);color:var(--paper)}
+  a{color:var(--red-ink);text-underline-offset:3px}
+  :focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:2px}
+
+  /* paper rule texture — the journal's own ground */
+  .sheet{
+    background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 27px,var(--rule) 27px,var(--rule) 28px);
+  }
+
+  /* month tabs */
+  .tabs{position:fixed;left:0;top:0;bottom:0;width:44px;display:flex;flex-direction:column;justify-content:center;gap:2px;z-index:40}
+  .tabs a{
+    writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-soft);text-decoration:none;padding:4px 0;text-align:center;
+    border-radius:0 4px 4px 0;
+  }
+  .tabs a.now{background:var(--red);color:var(--paper);font-weight:bold}
+  .tabs a:hover{color:var(--ink)}
+  .tabs a.now:hover{color:var(--paper)}
+
+  .wrap{max-width:1060px;margin:0 auto;padding:0 28px 0 84px}
+
+  /* ===== the spread ===== */
+  .spread{display:grid;grid-template-columns:1fr 1.06fr;gap:0;padding-top:34px}
+  .page{padding:6px 30px 34px 6px;position:relative}
+  .page.right{padding:6px 6px 34px 34px;border-left:1px solid var(--rule-strong);position:relative}
+  .page.right::before{content:"";position:absolute;left:-4px;top:0;bottom:0;width:1px;background:var(--rule-strong)}
+
+  .week-title{font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:4px}
+  .week-sub{font-style:italic;color:var(--ink-soft);font-size:15px;margin-bottom:26px}
+
+  .entry{margin-bottom:30px;max-width:58ch}
+  .entry .date{font-variant-numeric:tabular-nums;font-size:13.5px;letter-spacing:.08em;color:var(--ink-soft);text-transform:uppercase}
+  .entry .weather{font-style:italic;font-size:14.5px;color:var(--ink-soft);margin-top:1px}
+  .entry p{margin-top:6px}
+  .entry .next{color:var(--red-ink)}
+  .entry .next em{font-style:italic}
+
+  /* taped plant tag */
+  .tag{
+    background:var(--tag);max-width:340px;padding:18px 20px 14px;position:relative;
+    transform:rotate(-1.2deg);
+    box-shadow:3px 5px 14px rgba(44,58,47,.18);
+    margin:34px 0 10px;
+  }
+  .tag .tape{position:absolute;top:-11px;left:38px;width:92px;height:22px;background:var(--tape-green);transform:rotate(-3deg)}
+  .tag h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:2px}
+  .tag .binom{font-style:italic;color:var(--ink-soft);font-size:14px;margin-bottom:10px}
+  .tag table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+  .tag td{padding:2.5px 0;font-size:13.5px;border-bottom:1px solid var(--rule)}
+  .tag td:last-child{text-align:right;color:var(--ink-soft)}
+  .tag .src{font-size:11px;color:var(--ink-soft);margin-top:8px;font-style:italic}
+
+  /* right page */
+  .brand{margin:8px 0 6px}
+  .brand svg{max-width:100%;height:auto}
+  .demo-notice{font-size:13px;padding:10px 0;color:var(--ink-soft)}
+  .promise{font-size:clamp(22px,3vw,30px);font-style:italic;max-width:20ch;position:relative;display:inline-block;margin-top:8px}
+  .promise::after{
+    content:"";position:absolute;left:-2px;right:-6px;bottom:-7px;height:9px;
+    background:no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 9' preserveAspectRatio='none'%3E%3Cpath d='M2 6 C 40 1, 80 8, 118 3 S 180 5, 198 3' fill='none' stroke='%23B4432E' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-size:100% 100%;transform-origin:left center;transform:scaleX(0);transition:transform 1.1s cubic-bezier(.16,1,.3,1) .5s;
+  }
+  .in .promise::after{transform:scaleX(1)}
+  .lede{max-width:44ch;color:var(--ink-soft);font-size:16.5px;margin-top:22px}
+
+  .call{
+    display:inline-block;margin-top:30px;background:var(--red);color:var(--paper);
+    font-size:19px;text-decoration:none;padding:15px 30px;border-radius:14px;
+    box-shadow:2px 6px 18px rgba(148,53,31,.35), inset 0 0 0 1px rgba(255,255,255,.12);
+    transition:transform .18s cubic-bezier(.2,.8,.3,1), box-shadow .18s, background .18s;
+  }
+  .call:hover{background:var(--red-deep);transform:translateY(-2px);box-shadow:3px 9px 22px rgba(148,53,31,.4), inset 0 0 0 1px rgba(255,255,255,.12)}
+  .call .n{font-variant-numeric:tabular-nums}
+  .call-note{font-size:13px;font-style:italic;color:var(--ink-soft);margin-top:8px}
+
+  /* note form */
+  .note{margin-top:36px;max-width:400px}
+  .note h3{font-size:13.5px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px}
+  .note label{display:block;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:12px 0 3px}
+  .note input,.note textarea{
+    width:100%;font:inherit;color:var(--ink);background:transparent;
+    border:none;border-bottom:1px solid var(--rule-strong);padding:5px 2px;border-radius:0;
+  }
+  .note textarea{resize:vertical;min-height:58px}
+  .note input::placeholder,.note textarea::placeholder{font-style:italic;color:#536053}
+  .note button{
+    margin-top:18px;background:var(--ink);color:var(--paper);font:inherit;font-size:15.5px;
+    border:none;padding:11px 22px;border-radius:10px;cursor:not-allowed;opacity:.85;
+    box-shadow:2px 4px 12px rgba(44,58,47,.25);
+  }
+  .note .wire{font-size:12.5px;font-style:italic;color:var(--ink-soft);margin-top:10px}
+
+  /* ===== sections ===== */
+  section{padding:64px 0 12px}
+  h2{font-size:clamp(24px,3vw,32px);font-weight:normal;margin-bottom:26px;max-width:24ch}
+  h2 em{font-style:italic;color:var(--red-ink)}
+
+  .year{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:20px}
+  .month{background:var(--paper);padding:16px 14px 14px;min-height:104px;position:relative}
+  .month .m{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+  .month .t{font-size:13.5px;font-style:italic;color:var(--ink-soft);margin-top:6px;line-height:1.45}
+  .month.now{background:var(--paper-deep)}
+  .month.now .m{color:var(--red-ink);font-weight:bold}
+  .year-note{font-size:13.5px;font-style:italic;color:var(--ink-soft)}
+
+  .svc{max-width:62ch}
+  .svc-row{display:flex;gap:20px;padding:15px 2px;border-bottom:1px solid var(--rule);align-items:baseline}
+  .svc-row .s{min-width:210px;font-size:16.5px}
+  .svc-row .d{color:var(--ink-soft);font-size:15px;font-style:italic}
+  .svc-src{font-size:13px;font-style:italic;color:var(--ink-soft);margin-top:12px}
+
+  .how{display:grid;grid-template-columns:1fr 1fr 1fr;gap:34px;max-width:900px}
+  .how .step em{font-style:italic;color:var(--red-ink);font-size:15px;display:block;margin-bottom:6px}
+  .how .step p{font-size:15.5px}
+
+  .close{margin:72px 0 0;padding:40px 0 46px;border-top:1px solid var(--rule-strong)}
+  .close .call{margin-top:14px}
+
+  footer{padding:30px 0 46px;color:var(--ink-soft);font-size:13.5px}
+  footer .disc{font-style:italic;margin-top:10px;max-width:70ch}
+  footer a{color:var(--ink)}
+
+  @media (prefers-reduced-motion:reduce){
+    .promise::after{transition:none;transform:scaleX(1)}
+    .call{transition:none}
+    html{scroll-behavior:auto}
+  }
+  @media (max-width:880px){
+    .wrap{padding:0 20px}
+    .tabs{position:static;width:auto;flex-direction:row;overflow-x:auto;padding:10px 20px 6px;gap:4px}
+    .tabs a{writing-mode:horizontal-tb;transform:none;letter-spacing:.08em;padding:3px 9px;border:1px solid var(--rule);border-radius:999px;white-space:nowrap}
+    .spread{grid-template-columns:1fr;padding-top:8px}
+    .page,.page.right{padding:18px 4px;border-left:none}
+    .page.right::before{display:none}
+    .year{grid-template-columns:repeat(2,1fr)}
+    .how{grid-template-columns:1fr;gap:22px}
+    .svc-row{flex-direction:column;gap:2px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="tabs" aria-label="Months of the yard's year">
+  <a href="#year">Jan</a><a href="#year">Feb</a><a href="#year">Mar</a>
+  <a href="#year">Apr</a><a href="#year">May</a><a href="#year">Jun</a>
+  <a href="#year">Jul</a><a href="#year">Aug</a><a href="#year">Sep</a>
+  <a href="#year">Oct</a><a class="now" href="#year">Nov</a><a href="#year">Dec</a>
+</nav>
+
+<div class="wrap sheet">
+  <p class="demo-notice">Independent website concept by Keystone Cognition Labs. Not the official Yogardener website; services and journal content are illustrative.</p>
+
+  <div class="spread" id="top">
+    <div class="page left">
+      <p class="week-title">This week in south Cobb yards</p>
+      <p class="week-sub">entries from the journal</p>
+
+      <div class="entry">
+        <div class="date">Wed · Nov 4</div>
+        <div class="weather">72°F, last of the warm evenings</div>
+        <p>Final mow of the season at a slower height, so the grass goes into
+        frost thick-backed and doesn't thin out by February.</p>
+      </div>
+
+      <div class="entry">
+        <div class="date">Thu · Nov 5</div>
+        <div class="weather">Cool start, leaves turning all at once</div>
+        <p>Cut back the ferns, pulled the spent annuals, laid mulch while the
+        ground was still workable. Taped this one into the journal:</p>
+      </div>
+
+      <aside class="tag" aria-label="Plant label, October sky pansy">
+        <span class="tape" aria-hidden="true"></span>
+        <h3>Pansy · planted Thu</h3>
+        <p class="binom">Viola × wittrockiana</p>
+        <table>
+          <tr><td>Set at</td><td>7 in. apart</td></tr>
+          <tr><td>Crown depth</td><td>level with soil</td></tr>
+          <tr><td>Water</td><td>at planting, then weekly</td></tr>
+        </table>
+        <p class="src">from the label that came with the flat</p>
+      </aside>
+
+      <div class="entry">
+        <div class="date">Fri · Nov 6</div>
+        <div class="weather">First frost expected within two weeks</div>
+        <p>Blanketed the fig, drained and coiled the hoses. <span class="next">Next:
+        <em>aerate the back lawn before the first hard freeze.</em></span></p>
+      </div>
+    </div>
+
+    <div class="page right">
+      <div class="brand" aria-label="Yogardener">
+        <svg width="298" height="72" viewBox="0 0 298 72" role="img" aria-label="Yogardener" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 10 C16 26, 24 40, 34 52 M34 52 C38 56, 44 58, 48 56 M60 8 C46 30, 46 44, 58 52 C70 58, 78 46, 82 34 M86 12 C92 34, 100 48, 108 54 M88 10 C96 24, 104 34, 116 38 M128 10 C118 28, 116 44, 126 54 C138 62, 150 50, 154 36 M158 10 C152 26, 152 42, 160 52 C172 60, 186 48, 190 34 M194 10 C190 30, 190 44, 198 54 C210 62, 224 48, 228 34 M232 10 C228 28, 228 44, 236 54 C246 62, 258 52, 262 38 M266 12 C276 20, 282 30, 286 40 M268 10 C280 16, 290 26, 294 34"
+            fill="none" stroke="#2C3A2F" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="288" cy="58" r="5" fill="#B4432E"/>
+        </svg>
+      </div>
+
+      <p class="promise">Your yard, known by season.</p>
+      <p class="lede">One gardener, south Cobb yards, one journal that remembers
+      what your lawn did last March, so it gets what it needs this one.</p>
+
+      <a class="call" href="tel:+14046232287">Call <span class="n">(404) 623-2287</span></a>
+      <p class="call-note">Answers between jobs; if the phone is in the truck, leave a word.</p>
+
+      <form class="note" onsubmit="return false">
+        <h3>Leave a note instead</h3>
+        <label for="nm">Your name</label>
+        <input id="nm" type="text" autocomplete="name" placeholder="Anna R.">
+        <label for="ph">Phone</label>
+        <input id="ph" type="tel" autocomplete="tel" placeholder="(770) 555-0134">
+        <label for="what">What needs doing?</label>
+        <textarea id="what" placeholder="Leaves are past the ankles and the beds need closing out…"></textarea>
+        <button type="button" disabled>Tear off and send</button>
+        <p class="wire">Demo preview: this form reaches the gardener the day the site goes live.</p>
+      </form>
+    </div>
+  </div>
+
+  <section id="year">
+    <h2>The yard's year, <em>as kept here</em></h2>
+    <div class="year">
+      <div class="month"><div class="m">Jan</div><div class="t">Prune the crepe myrtles while they're bare.</div></div>
+      <div class="month"><div class="m">Feb</div><div class="t">Pre-emergent on the fescue before the weeds wake.</div></div>
+      <div class="month"><div class="m">Mar</div><div class="t">First cut, beds re-edged, pansies in.</div></div>
+      <div class="month"><div class="m">Apr</div><div class="t">Azaleas fed right after bloom; mulch topped.</div></div>
+      <div class="month"><div class="m">May</div><div class="t">Mowing weekly; watch for hot-spots in the lawn.</div></div>
+      <div class="month"><div class="m">Jun</div><div class="t">Irrigation checked head by head before the heat.</div></div>
+      <div class="month"><div class="m">Jul</div><div class="t">Raise the cut height; deep water, not daily.</div></div>
+      <div class="month"><div class="m">Aug</div><div class="t">Touch-up trims; let the lawn ride the heat.</div></div>
+      <div class="month"><div class="m">Sep</div><div class="t">Overseed thin patches as nights cool.</div></div>
+      <div class="month"><div class="m">Oct</div><div class="t">Leaves managed weekly, not ignored monthly.</div></div>
+      <div class="month now"><div class="m">Nov</div><div class="t">Beds closed, hoses drained, final slow mow.</div></div>
+      <div class="month"><div class="m">Dec</div><div class="t">Mulch blankets; plan next year's beds by the fire.</div></div>
+    </div>
+    <p class="year-note">Every yard gets its own version of this page — written after it's walked.</p>
+  </section>
+
+  <section id="care">
+    <h2>What the journal covers</h2>
+    <div class="svc">
+      <div class="svc-row"><span class="s">Lawns, cut right</span><span class="d">height by season, edges kept, leaves handled</span></div>
+      <div class="svc-row"><span class="s">Beds &amp; gardens</span><span class="d">planting, dividing, weeding, mulching</span></div>
+      <div class="svc-row"><span class="s">Seasonal close &amp; open</span><span class="d">spring wake-up and November put-to-bed</span></div>
+      <div class="svc-row"><span class="s">The small fixes</span><span class="d">hoses, minor pruning, the things you keep meaning to</span></div>
+    </div>
+    <p class="svc-src">Service list shown for demo — the live site carries exactly what the gardener offers.</p>
+  </section>
+
+  <section id="how">
+    <h2>How a yard <em>gets known</em></h2>
+    <div class="how">
+      <div class="step"><em>First visit</em><p>We walk it together: sun, soil, what the lawn does badly and why. Page one opens.</p></div>
+      <div class="step"><em>The entries start</em><p>Each visit, a dated entry: what was done, what was watched, and what comes next.</p></div>
+      <div class="step"><em>Season by season</em><p>By next November the journal knows your yard better than any app or crew chart ever could.</p></div>
+    </div>
+  </section>
+
+  <div class="close" id="call">
+    <h2>The first entry is a walk around your yard.</h2>
+    <a class="call" href="tel:+14046232287">Call <span class="n">(404) 623-2287</span></a>
+  </div>
+
+  <footer>
+    <p>Yogardener · serving south Cobb: Marietta, Austell, Smyrna · <a href="tel:+14046232287">(404) 623-2287</a></p>
+    <p>Site by Keystone Cognition Labs · Michael Robateau · <a href="tel:+13108010847">(310) 801-0847</a> · this homepage was built before we ever met.</p>
+    <p class="disc">Demo preview: journal entries and the calendar are illustrative examples, not records of specific client yards.</p>
+  </footer>
+
+</div>
+
+<script>
+  // one authored motion moment: the pen underline draws when the promise scrolls in
+  (function(){
+    var el = document.querySelector('.promise');
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.body.classList.add('in');return;}
+    if ('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){document.body.classList.add('in');io.disconnect();}});},{threshold:.6});
+      io.observe(el);
+    } else { document.body.classList.add('in'); }
+  })();
+</script>
+</body>
+</html>
