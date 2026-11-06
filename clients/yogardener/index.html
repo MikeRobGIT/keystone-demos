@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0E1611">
 <meta name="robots" content="noindex, nofollow">
 <title>Yogardener — Landscape Planning &amp; Installation, Atlanta | Concept redesign</title>
 <meta name="description" content="Concept redesign of Yogardener by Keystone Cognition Labs. Landscape planning, design and installation for Atlanta: drainage, hardscape, native planting and edible gardens. Since 2015.">
@@ -10,6 +11,7 @@
 <link rel="preload" href="assets/fonts/HankenGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/AzeretMono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/fonts.css">
+<noscript><style>.draw{stroke-dashoffset:0!important}</style></noscript>
 <style>
 /* ============================================================
    YOGARDENER — CONCEPT REDESIGN
@@ -46,7 +48,9 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media print{.reveal{opacity:1!important}body{background:#fff}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html{scrollbar-width:thin;scrollbar-color:#314033 var(--canopy);color-scheme:dark light}
 body{
   margin:0;background:var(--canopy);color:var(--mist);
   font-family:var(--body);font-size:17px;line-height:1.62;font-weight:400;
@@ -57,7 +61,8 @@ img{max-width:100%;display:block}
 figure{margin:0}
 a{color:inherit}
 ::selection{background:#3E5A46;color:#F4F8F0}
-:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
+:focus-visible{outline:2px solid var(--ember);outline-offset:3px;box-shadow:0 0 0 5px rgba(243,236,221,.92)}
+.skip:focus-visible{outline-color:#FFF6EF;box-shadow:none}
 :focus:not(:focus-visible){outline:2px solid var(--sage)}
 @supports selector(::-webkit-scrollbar){
   ::-webkit-scrollbar{width:13px;height:13px}
@@ -290,6 +295,9 @@ em{font-style:italic}
   .p1,.p2,.p3,.p4,.p5{grid-column:auto;aspect-ratio:4/3}
   .p1{grid-column:1/-1;aspect-ratio:16/10}
 }
+@media (max-width:380px){
+  .rail{overflow-x:auto;grid-template-columns:repeat(12,minmax(26px,1fr));-webkit-overflow-scrolling:touch}
+}
 @media (max-width:520px){
   .projects{grid-template-columns:1fr}
   .p1{grid-column:auto;aspect-ratio:4/3}
@@ -422,7 +430,8 @@ em{font-style:italic}
   .brand-txt span{display:none}
 }
 @media (max-width:760px){
-  .sheet-body{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+  .sheet-body{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#5A6A52 var(--vellum)}
+  .sheet-body:focus-visible{outline:2px solid var(--ember);outline-offset:-4px}
   .sheet-body svg{min-width:720px}
   .pan-hint{display:block}
   .notice .wrap{font-size:12px;line-height:1.45;padding-block:7px}
@@ -439,6 +448,9 @@ em{font-style:italic}
   .monthnote{font-size:12.5px;gap:8px}
   .monthnote b{font-size:13.5px}
 }
+@media (max-width:380px){
+  .rail{overflow-x:auto;grid-template-columns:repeat(12,minmax(26px,1fr));-webkit-overflow-scrolling:touch}
+}
 @media (max-width:520px){
   .hero h1{font-size:clamp(36px,10.5vw,52px)}
   .hero-actions .btn{width:100%;justify-content:center}
@@ -451,14 +463,16 @@ em{font-style:italic}
 }
 
 /* ---------- misc ---------- */
-.skip{position:absolute;left:-9999px;top:0;background:var(--ember);color:#fff;padding:10px 16px;z-index:99;border-radius:0 0 3px 0}
+.skip{position:fixed;left:-9999px;top:0;background:var(--ember);color:#fff;padding:10px 16px;z-index:99;border-radius:0 0 3px 0}
 .skip:focus{left:0}
 .reveal{opacity:0;transition:opacity .6s cubic-bezier(.2,.7,.3,1)}
 .reveal.in{opacity:1}
+@media print{.reveal{opacity:1!important}body{background:#fff}}
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transition:none}
   .draw{stroke-dashoffset:0!important;transition:none!important}
-  .pin,.proj img{transition:none}
+  .proj img{transition:none}
+  .btn,.btn-ghost,.callbtn,.rail button,.nav a{transition:none!important}
 }
 </style>
 </head>
@@ -491,7 +505,7 @@ em{font-style:italic}
   </div>
 </header>
 
-<main id="main">
+<main id="main" tabindex="-1">
 <span id="top"></span>
 
 <!-- ============ HERO ============ -->
@@ -529,8 +543,8 @@ em{font-style:italic}
         <span>Sheet 01 &mdash; Existing conditions &amp; plan</span>
         <b>Yogardener &middot; Atlanta</b>
       </div>
-      <p class="pan-hint">Drag to pan the plan &rarr;</p>
-      <div class="sheet-body">
+      <p class="pan-hint">Swipe, or use the arrow keys, to pan the plan &rarr;</p>
+      <div class="sheet-body" tabindex="0" role="region" aria-label="Site plan drawing — scroll horizontally to view the whole plan">
         <svg viewBox="0 0 960 700" role="img" aria-labelledby="planTitle planDesc">
           <title id="planTitle">Site plan of a typical Atlanta residential lot</title>
           <desc id="planDesc">A drawn site plan of an Atlanta residential lot: an existing house with a roof, a front door, a patio door and a stoop; mature tree canopies; four contour lines at two foot intervals falling to the south; a six percent fall arrow; a French drain running to the property line; a permaculture zone marked around the house; proposed planting including a native bed, a rain garden and a flagstone patio; two reference photographs of completed work; a legend; four drawing notes; and a title block giving the drawing's date and contact details.</desc>
@@ -1009,7 +1023,7 @@ em{font-style:italic}
         <span>Google&rsquo;s own highlighted lines from the reviews</span>
       </div>
       <div class="badge">
-        <img src="assets/nextdoor-award.png" alt="Nextdoor 2026 Neighborhood Fave award">
+        <img src="assets/nextdoor-award.webp" alt="Nextdoor 2026 Neighborhood Fave award">
         <span><b>Nextdoor Neighborhood Fave</b><span>2021, 2023, 2024, 2025 and 2026</span></span>
       </div>
     </div>
@@ -1180,7 +1194,7 @@ em{font-style:italic}
     <div class="form">
       <h3>Or send the brief</h3>
       <p class="sub">Three fields and a sentence about your yard &mdash; the whole brief, in your own words.</p>
-      <form action="#" method="post" onsubmit="return false;">
+      <form action="#" method="post" novalidate aria-disabled="true" aria-describedby="form-note" onsubmit="return false;">
         <div class="fields">
           <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" placeholder="Your name"></div>
           <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="(404) 555-0123"></div>
@@ -1188,8 +1202,8 @@ em{font-style:italic}
           <div class="field wide"><label for="f-msg">What does the yard need?</label><textarea id="f-msg" name="message" placeholder="The slope, the clay, the shade, the standing water &mdash; or just what you have been putting up with."></textarea></div>
         </div>
         <div class="form-foot">
-          <button class="btn btn-solid" type="submit">Send the brief</button>
-          <p class="form-note">Demo preview &mdash; this form is not connected and sends nothing. On the live site it would reach Yogardener within one business day.</p>
+          <button class="btn btn-solid" type="submit" aria-describedby="form-note">Send the brief</button>
+          <p class="form-note" id="form-note">Demo preview &mdash; this form is not connected and sends nothing. On the live site it would reach Yogardener within one business day.</p>
         </div>
       </form>
     </div>
