@@ -25,11 +25,12 @@ Yogardener already has a website (yogardener.com, plus go.yogardener.com).
 `RESEARCH.md` in the repository root is the source of truth for every fact on
 the page, the audit of the client's current site, and the asset provenance.
 
-The page is a landscape architect's drawing sheet: the hero is a hand-drawn
-site plan with a bottom title block and a twelve-month rail that re-tints the
-plan by season. Self-hosted Anybody / Hanken Grotesk / Azeret Mono. No
-external network requests beyond the footer links out to Yogardener's own
-pages.
+The page is a landscape architect's drawing sheet. The hero is a full-width
+hand-drawn site plan with a key, four drawing notes and a bottom title block,
+plus a twelve-month rail that re-tints the plan by season and prints that
+month's task and source. A second sheet, Section A-A, carries the soil
+cross-section. Self-hosted Anybody / Hanken Grotesk / Azeret Mono. No external
+network requests beyond the footer links out to Yogardener's own pages.
 
 ## Verified 2026-11-06
 
@@ -58,10 +59,30 @@ All contrast failures were cleared by darkening the ember action colour to
 sub-11px label. The heading order was corrected — the year cells are now `h3`
 under the section `h2`.
 
+Round two, after a design critique: the sheet was rebuilt and enlarged to the
+full content width, because at its previous size every annotation on the
+drawing rendered at 7.6 CSS px — the argument of the page was illegible at
+the width it would be shown at. Fixed in that round: a canopy drawn on top of
+the house, three translated contour copies labelled with impossible
+elevations, contours that stopped short of their own labels, a scale bar that
+printed its value at its midpoint, a scale claim that was false on a fluid
+sheet, a house with no roof over a third of itself and no opening, a proposed
+bed drawn in the same symbol as an existing tree, a missing key, a 859px void
+in the reviews section, a month rail whose tint reached four blobs instead of
+the planting area, a season table that put March in the dormant bucket, the
+glass masthead, the button bevels, the eyebrow kickers and the scroll-reveal
+drift. The cross-section became Section A-A on vellum with its own title
+block.
+
 Responsive: checked at 320, 360, 390, 414, 600, 768, 900, 1024, 1100, 1280,
 1440 and 1600px. No horizontal overflow at any width; the display headline holds
-three lines at every width but 1100px. Under 760px the drawn sheet drops its
-title block and an HTML facts strip carries the same information.
+three lines at every width. Under 760px the drawn sheet drops its title block,
+an HTML facts strip carries the same information, and the sheet pans
+horizontally with a hint rather than shrinking to an illegible diagram.
+
+Design quality after round two: impeccable detect reports 7 findings, all
+false positives — six on the `.wrap` gutter and one where the detector reads
+the CSS `color` of SVG text instead of its `fill`.
 
 ## Still open before a client production launch
 
