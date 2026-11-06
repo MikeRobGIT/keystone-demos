@@ -87,7 +87,7 @@
   .tag .src{font-size:11px;color:var(--ink-soft);margin-top:8px;font-style:italic}
 
   /* right page */
-  .brand{margin:8px 0 6px}
+  .brand{margin:8px 0 6px;font-size:clamp(38px,4.5vw,52px);font-style:italic;font-weight:normal;line-height:1.15}
   .brand svg{max-width:100%;height:auto}
   .demo-notice{font-size:13px;padding:10px 0;color:var(--ink-soft)}
   .promise{font-size:clamp(22px,3vw,30px);font-style:italic;max-width:20ch;position:relative;display:inline-block;margin-top:8px}
@@ -164,10 +164,12 @@
   @media (max-width:880px){
     .wrap{padding:0 20px}
     .tabs{position:static;width:auto;flex-direction:row;overflow-x:auto;padding:10px 20px 6px;gap:4px}
-    .tabs a{writing-mode:horizontal-tb;transform:none;letter-spacing:.08em;padding:3px 9px;border:1px solid var(--rule);border-radius:999px;white-space:nowrap}
+    .tabs a{flex-shrink:0;min-height:36px;display:flex;align-items:center;writing-mode:horizontal-tb;transform:none;letter-spacing:.08em;padding:3px 9px;border:1px solid var(--rule);border-radius:999px;white-space:nowrap}
     .spread{grid-template-columns:1fr;padding-top:8px}
     .page,.page.right{padding:18px 4px;border-left:none}
     .page.right::before{display:none}
+    .page.right{grid-row:1}
+    .page.left{margin-top:30px}
     .year{grid-template-columns:repeat(2,1fr)}
     .how{grid-template-columns:1fr;gap:22px}
     .svc-row{flex-direction:column;gap:2px}
@@ -226,13 +228,7 @@
     </div>
 
     <div class="page right">
-      <div class="brand" aria-label="Yogardener">
-        <svg width="298" height="72" viewBox="0 0 298 72" role="img" aria-label="Yogardener" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 10 C16 26, 24 40, 34 52 M34 52 C38 56, 44 58, 48 56 M60 8 C46 30, 46 44, 58 52 C70 58, 78 46, 82 34 M86 12 C92 34, 100 48, 108 54 M88 10 C96 24, 104 34, 116 38 M128 10 C118 28, 116 44, 126 54 C138 62, 150 50, 154 36 M158 10 C152 26, 152 42, 160 52 C172 60, 186 48, 190 34 M194 10 C190 30, 190 44, 198 54 C210 62, 224 48, 228 34 M232 10 C228 28, 228 44, 236 54 C246 62, 258 52, 262 38 M266 12 C276 20, 282 30, 286 40 M268 10 C280 16, 290 26, 294 34"
-            fill="none" stroke="#2C3A2F" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="288" cy="58" r="5" fill="#B4432E"/>
-        </svg>
-      </div>
+      <h1 class="brand">Yogardener<span aria-hidden="true" style="color:var(--red)">.</span></h1>
 
       <p class="promise">Your yard, known by season.</p>
       <p class="lede">One gardener, south Cobb yards, one journal that remembers
@@ -250,7 +246,7 @@
         <label for="what">What needs doing?</label>
         <textarea id="what" placeholder="Leaves are past the ankles and the beds need closing out…"></textarea>
         <button type="button" disabled>Tear off and send</button>
-        <p class="wire">Demo preview: this form reaches the gardener the day the site goes live.</p>
+        <p class="wire">Preview only — this form does not send messages. Call to enquire.</p>
       </form>
     </div>
   </div>
